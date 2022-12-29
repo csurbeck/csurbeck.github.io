@@ -164,14 +164,17 @@ main {
 }
 
 #husky-guide-page section,
-#objectives-ft p {
+#objectives-ft p,
+#objectives-gc p{
   padding-left: 200px;
   padding-right: 200px;
   padding-bottom: 100px;
   font-size: 20px;
 }
 
-#takeaways-ft p {
+#takeaways-ft p,
+#process-gc p,
+#takeaways-gc {
   padding-left: 200px;
   padding-right: 200px;
   font-size: 20px;
@@ -179,7 +182,8 @@ main {
 }
 
 #family-tree-page h2,
-#hg-title {
+#hg-title,
+#gallery-curator-page h2 {
   font-size: 44px;
   text-align: center;
   color: rebeccapurple;
@@ -188,7 +192,10 @@ main {
 #husky-guide-page h4,
 #objectives-ft h4,
 #process-ft h4,
-#takeaways-ft h4 {
+#takeaways-ft h4,
+#objectives-gc h4,
+#process-gc h4,
+#takeaways-gc h4 {
   font-size: 30px;
   text-align: center;
 }
@@ -199,25 +206,29 @@ main {
 }
 
 #overview-ft,
-#process-ft {
+#process-ft,
+#overview-gc {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 #overview-ft article,
-#process-ft article {
+#process-ft article,
+#overview-gc article {
   width: 500px;
   font-size: 20px;
 }
 
 #overview-ft h4,
-#process-ft h4 {
+#process-ft h4,
+#overview-gc h4 {
   font-size: 28px;
   margin-bottom: 0px;
 }
 
-#overview-ft img {
+#overview-ft img,
+#overview-gc img {
   width: 500px;
   height: 300px;
 }
@@ -226,8 +237,25 @@ main {
   height: 500px;
 }
 
+#image-gc {
+  display: flex;
+  justify-content: center;
+}
+
+#takeaways-gc img {
+  width: 1000px;
+  margin: auto;
+  margin-top: 50px;
+  border: 25px solid white;
+}
+
+#gallery-curator-page button {
+  margin-top: 50px;
+}
+
 iframe,
-#dwnld-btn {
+#dwnld-btn,
+#gotft-btn {
   display: block;
   margin: auto;
 }
@@ -238,7 +266,8 @@ iframe {
   height: 1180px;
 }
 
-#dwnld-btn {
+#dwnld-btn,
+#gotft-btn {
   font-family: 'Manrope', sans-serif;
   background-color: rgb(153, 91, 215);
   color: white;
@@ -247,6 +276,11 @@ iframe {
   margin-top: 30px;
   margin-bottom: 35px;
   height: 40px;
+}
+
+#dwnld-btn:hover,
+#gotft-btn:hover {
+  cursor: pointer;
 }
 
 a:link, a:hover, a:active a:visited {
@@ -259,7 +293,8 @@ a:link, a:hover, a:active a:visited {
 }
 
 #abtme-alpha > article,
-#overview-ft > article {
+#overview-ft > article,
+#overview-gc > article {
   display: flex;
   flex-direction: column;
   align-items: center;

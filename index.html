@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset='utf-8' />
-    <title>Claire Surbeck</title>
+    <title>Portfolio</title>
     <link href='styles.css' rel='stylesheet' />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600&family=Yatra+One&display=swap" rel="stylesheet">
     <script src="script.js"></script>
@@ -39,8 +39,10 @@
             <article id="family-tree">
               <img src="mats/got-logo.png" alt="website logo for Game of Thrones Family Generator">
             </article>
-            <article>
+            <article id="gallery-curator">
               <h2>Gallery Curator</h2>
+              <img src="mats/gc-title.png" alt="website title for Gallery Curator Website, developed
+              by Claire Surbeck">
             </article>
             <article id="connected">
               <img src="mats/connected-logo.png" alt="Connected logo developed by Claire Surbeck">
@@ -132,11 +134,88 @@
             </p>
             <p>
               Moving forward, things I would do to improve this project that I didn't get a chance
-              to implement would be eliminating redundancy of generated characters generated so that
+              to implement would be eliminating redundancy of generated characters so that
               an individuals could only appear once on the family tree. In review, this project
               allowed me to extensively experiment with handling APIs  and fetch requests and
               further master my ability to generate HTML elements and manipulate the DOM.
             </p>
+            <a href="got-family-tree/index.html"><button id="gotft-btn">Visit this project!</button></a>
+          </article>
+        </section>
+      </section>
+      <section id="gallery-curator-page" class="hidden">
+        <section>
+          <h2>Gallery Curator</h2>
+          <article class="alternating" id="overview-gc">
+            <article>
+              <h4>Overview</h4>
+              <p>
+                Gallery Curator was a website I created for my CSE 154 class to further master using
+                JavaScript to manipulate class lists and the DOM. On this website, the user can
+                browse and select art pieces from seven different art periods to create their own
+                gallery. Once the gallery is generated, the user can experiment with different
+                frames on the pieces in their gallery.
+              </p>
+            </article>
+            <img src="mats/gc-top-page.png" alt="top part of the page of Gallery Curator,
+             developed by Claire Surbeck">
+          </article>
+          <article id="objectives-gc">
+            <h4>Objectives</h4>
+            <p>
+              The objectives for this project were to implement functions that would instantiate
+              DOM manipulation, respond to user events such as mouse or keybord events, and modify
+              classLists of HTML elements. These objectives were achieved by using event listeners
+              and writing JavaScript functions.
+            </p>
+          </article>
+          <article id="process-gc" class="alternating">
+            <h4>Process</h4>
+            <p>
+              I love art, especially pieces from the Impressionist Era, and decided that I wanted to
+              experiment with and develop my DOM manipulation skills by sampling works from
+              significant art movements that users could select to be moved to a specific section of
+              the DOM to create personalized galleries. When developing the first part of the web
+              page, I worked with flexboxes to structure all the piece of art the user could choose
+              from. I also implemented a classList modifications to make a dark purple border appear
+              around a piece of art when the user clicked on it to keep track of their selected
+              pieces.
+            </p>
+            <p>
+              Next, I implemented the DOM manipulation event that took the selected piece of art and
+              moved them to the bottom section on the page upon the user clicking a button. In this
+              project, the articles containing the images were moved from their former sections and
+              appended to the gallery section, which caused the top part of the webpage to rearrange
+              itself since the tiers were structured with flexboxes.
+            </p>
+            <p>
+              After appending the articles containing the pieces of art to the gallery section, I
+              created buttons that would modify the class lists of pieces of art in the gallery
+              section to add one of three different frame styles. These buttons established the
+              articles with class lists to be modified by selecting all articles in the gallery
+              section, removing all other frame classes, and adding the button-specified class.
+            </p>
+          </article>
+          <article id="takeaways-gc">
+            <article id="image-gc">
+              <img src="mats/gc-gallery.png" alt="screenshot of an example generated gallery with the
+              thick black frame class added">
+            </article>
+            <h4>Key Takeaways</h4>
+            <p>
+              From this project, I was able to implement class list modification in two separate
+              ways: addition of a class to an HTML element as the result of a user event with that
+              specific element, and modification of class lists on multiple elements based on a user
+              event that occurred on a separate HTML element.
+            </p>
+            <p>
+              I successfully implemented DOM modification, although the transfer of the image
+              elements wasn't my exact desired outcome. Ideally, I would've liked to duplicate the
+              HTML elements so that the pieces of art would populate at the bottom of the screen
+              without interrupting the top part of the DOM. Nonetheless, I wrote multiple JavaScript
+              functions for modifying class lists and manipulating the DOM.
+            </p>
+            <a href="gallery-curator/index.html"><button id="gotft-btn">Visit this project!</button></a>
           </article>
         </section>
       </section>
@@ -214,6 +293,7 @@
       <section id="abtme-page" class="hidden">
         <article id="abtme-alpha">
           <article>
+            <h2>Hi! I'm Claire</h2>
             <p>
               I'm a junior at the University of Washington where I am studying
               Human-Centered Design & Engineering with a focus in Human-Computer Interaction. I am a
@@ -227,9 +307,9 @@
           I found a love for programming through HCDE, and took my first coding class last fall.
           Since then, I have pursued deeper knowledge and mastery of OOP languages, data structures,
           and algorithms in addition to my engineering courses, and recently completed a Web
-          Programming class that enabled me to build this portfolio website from scratch! I am
-          excited to move forward in the field of user-centered design with my passion for
-          programming to work towards building user-friendly, intuitive interfaces that are both
+          Programming class in fall quarter that enabled me to build this portfolio website from
+          scratch! I am excited to move forward in the field of user-centered design with my passion
+          for programming to work towards building user-friendly, intuitive interfaces that are both
           visually appealing and efficiently implemented. I have a lot more to learn, but I am
           enjoying every day of the process and figuring out how I can use my skills for good!
         </p>

@@ -31,6 +31,11 @@
       projectName = projectName + "-page";
       changePage(projectName);
     })
+    id("gallery-curator").addEventListener("click", function() {
+      let projectName = this.id;
+      projectName = projectName + "-page";
+      changePage(projectName);
+    })
   }
 
   function changePage(pageName) {
@@ -39,6 +44,7 @@
       mainPage[i].classList.add('hidden');
     }
     id(pageName).classList.remove('hidden');
+    scroll(0,0);
   }
 
   /**
