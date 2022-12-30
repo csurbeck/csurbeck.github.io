@@ -1,4 +1,3 @@
 [submodule "gameoT-family-tree"]
 	path = gameoT-family-tree
-	# url = https://github.com/csurbeck/gameoT-family-tree.git
-	url = https://csurbeck:baddieSummer238!@github.com/user/gameoT-family-tree.git
+	url = https://github.com/csurbeck/gameoT-family-tree.git
