@@ -1,3 +1,6 @@
 [submodule "gameoT-family-tree"]
 	path = gameoT-family-tree
 	url = https://github.com/csurbeck/gameoT-family-tree.git
+[submodule "gallery-curator"]
+	path = gallery-curator
+	url = https://github.com/csurbeck/gallery-curator.git
