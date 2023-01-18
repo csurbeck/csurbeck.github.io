@@ -4,18 +4,6 @@
   window.addEventListener('load', init);
 
   function init() {
-    id("resume-btn").addEventListener("click", function() {
-      changePage("resume-page");
-    });
-    id("work-btn").addEventListener("click", function() {
-      changePage("work-page");
-    });
-    id("main-btn").addEventListener("click", function() {
-      changePage("work-page");
-    });
-    id("abtme-btn").addEventListener("click", function() {
-      changePage("abtme-page");
-    });
     id("husky-guide").addEventListener("click", function() {
       let projectName = this.id;
       projectName = projectName + "-page";
@@ -36,6 +24,8 @@
       projectName = projectName + "-page";
       changePage(projectName);
     })
+    // id("light-mode").addEventListener("click", lightMode());
+    id("dark-mode").addEventListener("click", darkMode());
   }
 
   function changePage(pageName) {
@@ -45,6 +35,13 @@
     }
     id(pageName).classList.remove('hidden');
     scroll(0,0);
+  }
+
+  function darkMode() {
+    let purpleText = qsa("header-bar button");
+    for (let i = 0; i < purpleText.length; i++) {
+      purpleText[i].classList.add('lavender-text');
+    }
   }
 
   /**
