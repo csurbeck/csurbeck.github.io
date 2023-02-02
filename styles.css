@@ -161,6 +161,13 @@ main {
   padding-bottom: 30px;
 }
 
+#projects a:link,
+#projects a:hover,
+#projects a:active,
+#projects a:visited {
+  color: black;
+}
+
 #projects article {
   background-color: white !important;
   margin: 20px;

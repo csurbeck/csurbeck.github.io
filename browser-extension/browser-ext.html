@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset='utf-8' />
+    <title>MP1 Write-Up</title>
+    <link href='browser-ext.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600&family=Yatra+One&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <section id="header-bar">
+        <div id="header-name">
+          <a href="/index.html"><button id="main-btn">Claire Surbeck</button></a>
+        </div>
+        <div id="header-bar-buttons">
+          <a href="/resume/resume.html" class="header-btn"><button id="resume-btn" class="header-btn">Resume</button></a>
+          <a href="/cheatsheet/cheatsheet.html" class="header-btn"><button>Cheatsheet</button></a>
+          <div class="dropdown">
+            <button class="dropbtn">Write Ups</button>
+            <div class="ddcontent">
+              <a href="/mp0wu/mp0wu.html">MP0</a>
+              <a href="/mp1wu/mp1wu.html">MP1</a>
+            </div>
+          </div>
+          <a href="/aboutme/aboutme.html" class="header-btn"><button id="abtme-btn">About Me</button></a>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section>
+        <h2>MP1 Write-Up</h2>
+        <article class="alternating" id="overview">
+          <article>
+            <h4>Overview</h4>
+            <p>
+              For the MP1 Browser Extension Project, I decided that I wanted to make an extension
+              that was compatible with wikipedia pages that would populate ladybug icons at the end
+              of every paragraph HTML element on the page that the user could then collect as they
+              read the webpage. The brower extension pop-up would have a button that would deploy
+              and append the ladybug icons to the paragraph elements. The broswer extension would
+              also have a counter that would increment when the user clicked on a ladybug that they
+              found on the page. I chose to make this extension explicitly operable with wikipedia
+              for now given the reliability of their page structuring that would easily allow my
+              code to query selected paragraph elements to append the ladybug images to.
+            </p>
+          </article>
+        </article>
+        <article id="dev-process">
+          <h4>Development Process</h4>
+          <div>
+            <p>
+              The development process that I followed for this project started with generating the
+              image that I would use as my icon that would be displayed in the extension library as
+              well as on the top of my browser window. Although the production of this icon wasn't a
+              required part of the project, it gave me an opportunity to experiment with making web-
+              compatible icons with Adobe Illustrator. I made icons in 16x16 pixel and 128x128 pixel
+              sizes. From there, I wrote the HTML and CSS files for my pop-up window, which helped
+              me determine what the exact function of my extension would be given the functionalities
+              that would be displayed in the pop-up window. Next, I wrote the pop-up JavaScript file,
+              which signified my content-script to update the browser page when the 'deploy ladybugs'
+              button was clicked. From there, I wrote my content-script file, where I used the query-
+              select-all function to query all of the paragraph HTML elements on the page and then
+              append the little ladybug images to the end. I also wrote a CSS file to go along with
+              the content-script file to manage the size of the ladybug image. I also authored the
+              script to remove the ladybug images when they were clicked upon and increment the
+              ladybug count in the pop-up screen.
+            </p>
+            <div id="dev-images">
+              <div>
+                <img src="mp1wumats/unfinished-popup.png" alt="unfinished pop-up screen">
+                <p>Unfinished pop-up screen</p>
+              </div>
+              <div>
+                <img src="mp1wumats/finishedpopup.png" alt="finished pop-up screen">
+                <p>Finished pop-up screen</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article id="issues" class="alternating">
+          <article>
+            <h4>Issue Deep-Dive</h4>
+            <div id="content">
+              <p>
+                A major issue that I ran into was being able to display my ladybug icons once they
+                had been appended to the end of the paragraph elements on the page. I was originally
+                confused by this issue because my extension was using the same image as the icon
+                for my extension in the extension library. I started doing some general Google-ing
+                to try and narrow down my problem, and eventually realized that to display my images
+                as images on the browser page, I had to include the image files in an object in the
+                manifest.json file that defined web-accessible resources from my files. I added my
+                image files as the value to the 'resources' key, and added the wikipedia URL as the
+                value to the 'matches' key. I thought this would now make the images available to be
+                displayed on the browser page, but when I reloaded the package and tried to
+                instantiate that event again, I was still receiving a 404 error. At this point, I
+                was totally stuck and reached out to my instructor over our message board with my
+                problem, where she guided me to the Chrome resource page that clarified that I
+                needed to use the <code>chrome.runtime.getURL()</code> function to generate the
+                URL that my image element was using as its source. This was the final piece to
+                fixing my problem, and after that my little ladybug images were successfully
+                displayed at the end of the page's paragraphs!
+              </p>
+              <div id="gif">
+                <img src="mp1wumats/extension.gif" alt="gif of my extension">
+                <p>
+                  GIF of ladybugs being added to the end of all paragraphs, and then the user
+                  clicking on them to "collect" them.
+                </p>
+              </div>
+            </div>
+          </article>
+        </article>
+        <article id="future">
+          <article>
+            <h4>Ideas for Future Development</h4>
+            <p>
+              Moving forward with the development of this web browsers, some ideas and features I
+              would like to integrate in the future are:
+            </p>
+            <ul>
+              <li>A little environment for the ladybugs to "roam" once they've been collected</li>
+              <li>To make this browser extension compatible with other web article formats</li>
+            </ul>
+          </article>
+        </article>
+        <article id="kudos" class="alternating">
+          <article>
+            <h4>Kudos!</h4>
+            <p>
+              Here are some web resources that were really helpful during my development process:
+            </p>
+            <ul>
+              <li><a href="https://developer.chrome.com/docs/extensions/mv3/content_scripts/#files">Accessing Extension Files (Chrome Developer)</a></li>
+              <li><a href="https://developer.chrome.com/docs/extensions/mv3/manifest/web_accessible_resources/">Manifest - Web Accessible Resources (Chrome Developer)</a></li>
+            </ul>
+          </article>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <section id="footer-bar">
+        <p>Let's Connect!</p>
+        <a href="https://www.linkedin.com/in/claire-surbeck/"><img id="linked-in" src="mp1wumats/linkedin-icon.png" alt="LinkedIn Icon"></a>
+        <a href="mailto:csurbeck@uw.edu"><img id="email" src="mp1wumats/email-icon.png" alt="Email Icon"></a>
+      </section>
+      <div id="icon-citation">
+        <p>
+          <a target="_blank" href="https://icons8.com/icon/pBIeObS8d0aU/circled-envelope">Circled Envelope</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        </p>
+        <p>
+          <a target="_blank" href="https://icons8.com/icon/62925/linkedin-circled">LinkedIn Circled</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
