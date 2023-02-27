@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset='utf-8' />
+    <title>Data Visualizer</title>
+    <link href='dv.css' rel='stylesheet' />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600&family=Yatra+One&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <section id="header-bar">
+        <div id="header-name">
+          <a href="/index.html"><button id="main-btn">Claire Surbeck</button></a>
+        </div>
+        <div id="header-bar-buttons">
+          <a href="/index.html" class="header-btn"><button id="work-btn">Work</button></a>
+          <a href="/resume/resume.html" class="header-btn"><button id="resume-btn">Resume</button></a>
+          <a href="/aboutme/aboutme.html" class="header-btn"><button id="abtme-btn">About Me</button></a>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section>
+        <h2>Museum Data Visualizer</h2>
+        <a href="http://www.clairesurbeck.com/data-visualizer/"><button id="visualizer-btn">Data Visualization</button></a>
+        <article class="alternating" id="overview">
+          <article>
+            <h4>Overview</h4>
+            <div>
+              <p>
+                In MP3, I chose to experiment with D3.js and Chart.js to build a data visualization. My
+                site displays bar chart visualization of two different subsets of a large dataset I
+                chose to work with. Upon the window's initial load, the first data set displayed is
+                compares the average income of museums by state, and the second dataset which can be
+                displayed compares the number of museums in each state. The visualizations can be navigated
+                between using the buttons at the top of the screen.
+              </p>
+              <img id="obj-img" src="dvmats/functionality.gif" alt="gif of my data visualizations">
+            </div>
+          </article>
+        </article>
+        <article id="dev-process">
+          <h4>Development Process</h4>
+          <div>
+            <p>
+              Firstly, I assessed that I needed to find a dataset to work with. I reserached websites
+              that had free datasets for use, and I found one about museums all around the US. From
+              this, I downloaded the csv file and cleaned it up by removing columns of data that I
+              deemed non-essential. After that, I created a new table in SQLite3, imported the data
+              from the cleaned-up CSV file into the SQL table, and then ran a query to find the
+              average income of museums in each state. After
+              running the query, I saved the output table in a new CSV file that I stored in the
+              data folder amongst my data visualization files.
+            </p>
+            <p>
+              After obtaining and cleaning the data, I started working with d3.js and chart.js to
+              create the charts. At first, I tried making the bar chart exclusively with d3.js, but
+              I was grappling with how to configure the details such as the axis labels, so I
+              decided to switch and use the chart.js library for making the tables. I felt that using
+              that JavaScript library was much more comprehensive at creating the charts, and I felt
+              application and format were more intuitive. Ultimately, I used the d3 .csv() function
+              to parse the CSV data tables into JSON objects, and then I used chart.js to map the
+              elements and apply them to the chart.
+            </p>
+            <p>
+              After successfully producing the first chart, I decided I wanted to increase the complexity
+              of my project by adding the second dataset and enabling the user to navigate between
+              the two visualizations. I repeated the process of querying a subset of the data from
+              the main museums dataset that represented the number of museums in each state. Parsing
+              the data and creating the table was family similar to with the first data set, and
+              then I added the buttons at the top of the screen and the JavaScript functionality
+              that destroyed and re-rendered the data visualization every time the user clicked on
+              a button to switch between datasets. I also added small details such as styling to the
+              buttons and a label on the y-axis.
+            </p>
+            <div id="dev-images">
+              <div>
+                <img src="dvmats/data-configuration.jpeg" alt="data configuration">
+                <p>
+                  Snapshot of my process of querying subsets of the museum data and saving the output
+                  table to a new CSV file.
+                </p>
+              </div>
+              <div>
+                <img src="dvmats/d3.js-attempt.jpeg" alt="attempt at bar chart visualization on d3.js">
+                <p>
+                  Snapshot of my attempt to map the data visualization with a bar chart using d3.js.
+                  I was having issues with the scaling and scope of the data.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article id="issues" class="alternating">
+          <article>
+            <h4>Issue Deep-Dive</h4>
+            <div id="content">
+              <div>
+                <p>
+                  I would say that I didn't have one major issue that I can dive really deep into,
+                  but rather a few smaller ones that I can speak to:
+                </p>
+                <p>
+                  My first challenge was cleaning and reconfiguring the data. In past projects where
+                  I have queried data using SQL, I was using Node.js and accessing a .db file. In this
+                  situation, I was able to get the dataset as a CSV file but I was unsure how to convert
+                  it to a DB file so I could work with it in a familiar way. After struggling for a
+                  while, I further explored the idea of saving query outputs in new CSV files. I was
+                  able to find documentation on how to do so, but every time I tried to save the
+                  output the new CSV file, I had no idea where the new file was going. At this point,
+                  I was just working with SQLite3 in my terminal, so I thought if I moved to a more
+                  comprehensive platform, I could have greater control over the newly created file.
+                  I tried downloading SQLiteStudio as well as working on Azure to make a new dataset
+                  but hit deadends at both. Finally, I found a small bit of documentation that
+                  showed that I could directly access the file I just created with the
+                  <code>.system open "filename".csv</code>. From there, I was able to directly open
+                  the new file and export it into my data folder, and I was all set!
+                </p>
+                <p>
+                  My second major issue was figuring out how to configure the fuctionality so that
+                  the user could navigate back and forth between the two data visualizations by
+                  clicking on the buttons at the top of the screen. My first approach was to clear
+                  the inner HTML of the canvas HTML element everytime a button was clicked so that
+                  the chart could be created on a blank canvas. Unfortunately for me, Chart.js doesn't
+                  work like that so I ran into an error. I did some research as to how to correctly
+                  clear the canvas in order to use it again. I found the documentation that instructed
+                  to use the Chart.js <code>.destroy()</code> method, so I tried implementing that
+                  as the first step everytime I tried to create a new chart. This caused me to run
+                  into a fence-post problem where I was attempting to destroy a chart before I even
+                  made the first one. From there, I deduced that if I loaded one visualization upon
+                  the 'load' window event and from there always saved the current chart in a global
+                  variable, I could then access that variable and destroy it before rendering a new
+                  chart upon the "click" event with the two buttons at the top of the screen.
+                </p>
+              </div>
+            </div>
+          </article>
+        </article>
+        <article id="future">
+          <article>
+            <h4>Ideas for Future Development</h4>
+            <p>
+              Moving forward with the development of my data visualizations with d3.js and Chart.js,
+              some ideas and features I would like to address in the future are:
+            </p>
+            <ul>
+              <li>
+                Debugging the average income dataset. I believe there is something inaccurate about
+                the average income of museums in Massachussetts because it is saying the average per
+                museum is over $1 billion.
+              </li>
+              <li>
+                I would've liked to figure out how to expand the y-axis to show all 50 states and add
+                some more color and details to my charts.
+              </li>
+            </ul>
+          </article>
+        </article>
+        <article id="kudos" class="alternating">
+          <article>
+            <h4>Kudos!</h4>
+            <p>
+              Here are some web resources that were really helpful during my development process:
+            </p>
+            <ul>
+              <li><a href="https://www.createwithdata.com/chartjs-and-csv/">Visualising CSV data with Chart.js</a></li>
+              <li><a href="https://www.chartjs.org/docs/latest/getting-started/">Chart.js: Getting Started</a></li>
+              <li><a href="https://www.chartjs.org/docs/latest/charts/bar.html#horizontal-bar-chart">Chart.js: Horizontal Bar Chart</a></li>
+              <li><a href="https://www.chartjs.org/docs/latest/developers/api.html">Chart.js: APIs</a></li>
+              <li><a href="https://www.kaggle.com/datasets/imls/museum-directory?resource=download">Kaggle Museum Dataset</a></li>
+          </article>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <section id="footer-bar">
+        <p>Let's Connect!</p>
+        <a href="https://www.linkedin.com/in/claire-surbeck/"><img id="linked-in" src="dvmats/linkedin-icon.png" alt="LinkedIn Icon"></a>
+        <a href="mailto:csurbeck@uw.edu"><img id="email" src="dvmats/email-icon.png" alt="Email Icon"></a>
+      </section>
+      <div id="icon-citation">
+        <p>
+          <a target="_blank" href="https://icons8.com/icon/pBIeObS8d0aU/circled-envelope">Circled Envelope</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        </p>
+        <p>
+          <a target="_blank" href="https://icons8.com/icon/62925/linkedin-circled">LinkedIn Circled</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
