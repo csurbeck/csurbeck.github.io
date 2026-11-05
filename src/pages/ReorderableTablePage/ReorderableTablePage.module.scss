@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+.page {
+    --ink: #000026;
+    --paper: #f4f4f4;
+    --surface: #ffffff;
+    --muted: rgba(0, 0, 38, 0.58);
+
+    min-height: 100vh;
+    width: 100%;
+    background:
+        radial-gradient(ellipse 80% 50% at 10% 0%, rgba(0, 0, 38, 0.05), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 20%, rgba(0, 0, 38, 0.04), transparent 50%),
+        var(--paper);
+    color: var(--ink);
+}
+
+.shell {
+    width: min(920px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 40px 0 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title {
+    margin: 0;
+    font-family: 'Hedvig Letters Serif', serif;
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+}
+
+.lede {
+    margin: 8px 0 0;
+    max-width: 50rem;
+    font-family: 'Noto Serif', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sectionLabel {
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.sectionBody {
+    margin: 0;
+    max-width: 60rem;
+    font-family: 'Noto Serif', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    letter-spacing: 0.02em;
+}
+
+.demo {
+    margin-top: 8px;
+    width: 100%;
+    padding: 24px;
+    background: var(--surface);
+    border: 1.5px solid rgba(0, 0, 38, 0.14);
+    border-radius: 8px;
+}
+
+.status {
+    display: inline-block;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 3px 0;
+}
+
+.statusActive {
+    color: #0f5c38;
+}
+
+.statusDraft {
+    color: #5a4a00;
+}
+
+.statusPaused {
+    color: var(--muted);
+}
+
+@media (max-width: 640px) {
+    .shell {
+        width: calc(100% - 32px);
+        padding: 28px 0 56px;
+        gap: 28px;
+    }
+
+    .demo {
+        padding: 16px;
+    }
+
+    .lede,
+    .sectionBody {
+        font-size: 16px;
+    }
+}

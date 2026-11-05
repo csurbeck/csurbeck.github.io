@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+.page {
+    --ink: #000026;
+    --paper: #f4f4f4;
+    --surface: #ffffff;
+    --muted: rgba(0, 0, 38, 0.58);
+    // --highlight: #ff6a00;
+
+    min-height: 100vh;
+    width: 100%;
+    background:
+        radial-gradient(ellipse 80% 50% at 10% 0%, rgba(0, 0, 38, 0.05), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 20%, rgba(0, 0, 38, 0.04), transparent 50%),
+        var(--paper);
+    color: var(--ink);
+}
+
+.shell {
+    width: min(920px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 40px 0 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 12px 0 8px;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 180px;
+}
+
+.heroImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 8px 0 16px;
+    border-radius: 8px;
+    background: var(--surface);
+}
+
+.title {
+    margin: 12px 0 0;
+    font-family: 'Hedvig Letters Serif', serif;
+    font-size: clamp(32px, 5vw, 44px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+}
+
+.meta {
+    margin: 8px 0 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.metaRow {
+    display: grid;
+    grid-template-columns: 11.5rem 1fr;
+    gap: 12px;
+    align-items: baseline;
+}
+
+.metaLabel {
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.metaValue {
+    margin: 0;
+    font-family: 'Noto Serif', serif;
+    font-size: 19px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sectionLabel {
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.sectionBody {
+    margin: 0;
+    max-width: 42rem;
+    font-family: 'Noto Serif', serif;
+    font-size: 19px;
+    line-height: 1.75;
+    letter-spacing: 0.02em;
+}
+
+.list {
+    margin: 0;
+    padding-left: 1.2rem;
+    max-width: 42rem;
+    font-family: 'Noto Serif', serif;
+    font-size: 17px;
+    line-height: 1.75;
+    letter-spacing: 0.02em;
+}
+
+.list li + li {
+    margin-top: 10px;
+}
+
+.contentImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 12px 0 100px;
+    border-radius: 8px;
+    border: 1.5px solid rgba(0, 0, 38, 0.1);
+    background: var(--surface);
+}
+
+.contentImageNarrow {
+    width: min(420px, 100%);
+}
+
+
+@media (max-width: 640px) {
+    .shell {
+        width: calc(100% - 32px);
+        padding: 28px 0 56px;
+        gap: 32px;
+    }
+
+    .metaRow {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .sectionBody,
+    .list,
+    .metaValue {
+        font-size: 16px;
+    }
+}

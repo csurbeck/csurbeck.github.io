@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+    scrollbar-color: #ff6a00 #f3bc95; /* [thumb color] [track color] */
+    scrollbar-width: thin; /* Optional: makes the scrollbar thinner */
+}
+
+.scrollSection {
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    margin-top: 39px;
+    display: flex;
+    flex-direction: column;
+}
+
+.frame {
+    flex-shrink: 0;
+    height: 1.5px;
+    width: 100%;
+    background-color: #000026;
+}
+
+.content {
+    flex: 1;
+    min-height: 0;
+    font-family: 'Hedvig Letters Serif', serif;
+    padding: 24px 20px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 900px) {
+    .content {
+        height: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+        padding: 20px 0;
+    }
+}
+
+.section {
+    padding: 18px 0 28px;
+}
+
+.sectionTitle {
+    color: #000026;
+    font-weight: 400;
+    margin: 0 0 28px;
+    font-size: 32px;
+    line-height: 1.25;
+}
+
+.paragraphText {
+    margin: 0 0 24px;
+    font-size: 18px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    letter-spacing: 0.03em;
+    line-height: 2;
+}
+
+.paragraphText:last-child {
+    margin-bottom: 0;
+}
+
+.workLink {
+    color: #000026;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+    transition: opacity 120ms ease;
+}
+
+.workLink:hover {
+    opacity: 0.7;
+}
+
+.contactLink {
+    color: #000026;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+    transition: opacity 120ms ease;
+}

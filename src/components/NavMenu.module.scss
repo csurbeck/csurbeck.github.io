@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif&display=swap');
+
+.navSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% + 39px);
+}
+
+.navSection {
+    position: sticky;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    font-family: "Hedvig Letters Serif", serif;
+    letter-spacing: 0.03em;
+}
+
+@media (max-width: 900px) {
+    .navSection {
+        position: static;
+        top: auto;
+        gap: 28px;
+    }
+}
+
+.nameHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.name {
+    font-size: 30px;
+    line-height: 1.1;
+}
+
+.nameDiv {
+    width: 280px;
+    height: 1.5px;
+    background-color: #000026;
+}
+
+.title {
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.navButtonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.navButton {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: #000026;
+    border-radius: 5px;
+    color: #F5F5F5;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.navButton:hover {
+    opacity: 0.85;
+}
+
+.navButton:focus {
+    outline: none;
+}
+
+.navButton:focus-visible {
+    outline: 6px solid #ff6a00;
+}
+
+.buttonText {
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    padding-left: 15px;
+}
+
+.buttonUnderline {
+    margin-top: 10px;
+    width: 200px;
+    height: 2px;
+    background-color: #000026;
+    border-radius: 2px;
+    opacity: 1;
+    transition: opacity 150ms ease;
+}
+
+.buttonUnderlineHidden {
+    opacity: 0;
+}
+
+.navFooter {
+    margin-top: 39px;
+}
+
+.navFooterIcons {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+    align-items: center;
+
+    a {
+        display: inline-flex;
+        line-height: 0;
+        height: fit-content;
+        padding: 0;
+        border-radius: 6px;
+        transition: opacity 120ms ease;
+    }
+
+    a:hover {
+        opacity: 0.85;
+    }
+
+    a:focus {
+        outline: none;
+    }
+
+    a:focus-visible {
+        outline: 6.5px solid #ff6a00;
+        outline-offset: -1px;
+    }
+
+    .navFooterIcon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.linkedinIcon {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.emailIcon {
+    width: 40px;
+    height: 30px;
+}

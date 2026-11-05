@@ -1,0 +1,16 @@
+.homePage {
+    background-color: #F3F3F3;
+    height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.contentContainer {
+    width: 85vw;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+}
