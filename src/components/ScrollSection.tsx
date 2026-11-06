@@ -68,16 +68,15 @@ export const ScrollSection = ({ currentSection, onSectionChange }: ScrollSection
                         </h2>
                         <p className={styles.paragraphText}>
                             I believe technology has the potential to impact our lives positively and meaningfully everyday, and I strive to be an actuator in realizing that potential. 
-                            Currently at Qualtrics, I build scalable, intuitive platform experiences that bridge the gap between complex data and the people who use it.
+                            I strive to build intuitive platform experiences that bridge the gap between complex data and the people who use it.
                         </p>
                         <p className={styles.paragraphText}>
-                            My journey has taken me from wiring back-end systems at REI to spearheading front-end innovation 
-                            for projects with CallAssure and Expedia. As a former Division I athlete, I tend to have an all-in 
+                            My journey has taken me from wiring back-end systems as an intern at REI to spearheading front-end innovation 
+                            for projects with CallAssure, Expedia, and now Qualtrics. As a former Division I athlete, I tend to have an all-in 
                             attitude and a commitment to leave things better than I found them.
                         </p>
                         <p className={styles.paragraphText}>
-                            When I'm not coding, you'll likely find me crafting my newest baking recipe with [insert your favorite LLM], 
-                            puzzling, or getting my group fitness on.
+                            When I'm not coding, you'll likely find trialing a new recipe, puzzling, or grounding myself at pilates.
                         </p>
                     </section>
 

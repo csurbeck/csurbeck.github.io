@@ -3,7 +3,7 @@ import linkedin_icon from '@src/assets/linkedin_icon.svg';
 import email_icon from '@src/assets/email_icon.svg';
 const styles = stylesImport as unknown as Record<string, string>;
 
-type SectionId = 'work' | 'about' | 'skills' | 'contact';
+type SectionId = 'about' | 'work' | 'skills' | 'contact';
 
 type NavMenuProps = {
     currentSection: SectionId;
@@ -11,8 +11,8 @@ type NavMenuProps = {
 };
 
 const NAV_ITEMS: Array<{ id: SectionId; label: string }> = [
-    { id: 'work', label: 'work' },
     { id: 'about', label: 'about' },
+    { id: 'work', label: 'work' },
     { id: 'skills', label: 'skills' },
     { id: 'contact', label: 'contact' },
 ];

@@ -10,6 +10,7 @@
 .navSection {
     position: sticky;
     top: 24px;
+    margin-top: 6.5px;
     display: flex;
     flex-direction: column;
     gap: 56px;
@@ -86,19 +87,23 @@
     padding-left: 15px;
 }
 
-.buttonUnderline {
-    margin-top: 10px;
-    width: 160px;
-    height: 2px;
-    background-color: #000026;
-    border-radius: 2px;
-    opacity: 1;
-    transition: opacity 150ms ease;
+.navButtonActive {
+    color: #ff6a00;
 }
 
-.buttonUnderlineHidden {
-    opacity: 0;
-}
+// .buttonUnderline {
+//     margin-top: 10px;
+//     width: 160px;
+//     height: 2px;
+//     background-color: #000026;
+//     border-radius: 2px;
+//     opacity: 1;
+//     transition: opacity 150ms ease;
+// }
+
+// .buttonUnderlineHidden {
+//     opacity: 0;
+// }
 
 .navFooter {
     margin-top: 39px;
