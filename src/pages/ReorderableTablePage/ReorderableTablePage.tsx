@@ -3,7 +3,7 @@ import {
     ReorderableTable,
     type ReorderableColumn,
 } from '@src/demo_components/ReorderableTable';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import * as stylesImport from './ReorderableTablePage.module.scss';
 
 const styles = stylesImport as unknown as Record<string, string>;
@@ -54,6 +54,10 @@ function statusClass(status: DemoRow['status']) {
 
 export function ReorderableTablePage() {
     const [items, setItems] = useState<DemoRow[]>(INITIAL_ROWS);
+
+    useEffect(() => {
+        document.title = 'Claire Surbeck – Reorderable table';
+    }, []);
 
     const columns = useMemo<ReorderableColumn<DemoRow>[]>(
         () => [

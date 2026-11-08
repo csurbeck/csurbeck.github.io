@@ -1,4 +1,5 @@
 import { BackToPortfolio } from '@src/components/BackToPortfolio';
+import { useEffect } from 'react';
 import phoneScreens from '@src/assets/expedia-trips/phone-screens.png';
 import calendarScreens from '@src/assets/expedia-trips/calendar-screens.jpg';
 import budgetFeature from '@src/assets/expedia-trips/budget-feature.jpg';
@@ -11,6 +12,10 @@ import * as stylesImport from './ExpediaTripsPage.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
 
 export function ExpediaTripsPage() {
+    useEffect(() => {
+        document.title = 'Claire Surbeck – Expedia Trips';
+    }, []);
+
     return (
         <div className={styles.page}>
             <div className={styles.shell}>

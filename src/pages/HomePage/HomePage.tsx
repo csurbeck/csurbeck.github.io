@@ -1,6 +1,6 @@
 import { NavMenu } from '@src/components/NavMenu';
 import { ScrollSection } from '@src/components/ScrollSection';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import * as stylesImport from './HomePage.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
 
@@ -8,6 +8,10 @@ type SectionId = 'about' | 'work' | 'skills' | 'contact';
 
 export function HomePage() {
     const [currentSection, setCurrentSection] = useState<SectionId>('about');
+
+    useEffect(() => {
+        document.title = 'Claire Surbeck';
+    }, []);
 
     const handleNavigate = useCallback((section: SectionId) => {
         setCurrentSection(section);
