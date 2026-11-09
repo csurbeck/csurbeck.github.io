@@ -14,3 +14,14 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media (max-width: 900px) {
+    .homePage {
+        height: auto;
+        overflow: visible;
+    }
+
+    .contentContainer {
+        height: auto;
+    }
+}

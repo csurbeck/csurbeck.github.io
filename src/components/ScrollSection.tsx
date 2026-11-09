@@ -1,61 +1,140 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as stylesImport from './ScrollSection.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
 
 type SectionId = 'about' | 'work' | 'skills' | 'contact';
 
+const SECTION_IDS: SectionId[] = ['about', 'work', 'skills', 'contact'];
+
 type ScrollSectionProps = {
     currentSection: SectionId;
     onSectionChange: (section: SectionId) => void;
 };
 
-export const ScrollSection = ({ currentSection, onSectionChange }: ScrollSectionProps) => {
+export type ScrollSectionHandle = {
+    scrollToSection: (id: SectionId) => void;
+};
+
+function isSectionId(id: string): id is SectionId {
+    return (SECTION_IDS as string[]).includes(id);
+}
+
+function isPanelScroller(content: HTMLElement): boolean {
+    const overflowY = getComputedStyle(content).overflowY;
+    return overflowY === 'auto' || overflowY === 'scroll' || overflowY === 'overlay';
+}
+
+function isAtScrollEnd(content: HTMLElement): boolean {
+    if (isPanelScroller(content)) {
+        const maxScroll = content.scrollHeight - content.clientHeight;
+        return maxScroll > 2 && maxScroll - content.scrollTop <= 2;
+    }
+    const scrolling = document.scrollingElement ?? document.documentElement;
+    const maxScroll = scrolling.scrollHeight - window.innerHeight;
+    return maxScroll > 2 && maxScroll - window.scrollY <= 2;
+}
+
+export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>(
+    function ScrollSection({ currentSection, onSectionChange }, ref) {
     const contentRef = useRef<HTMLDivElement | null>(null);
-    const skipNextScrollIntoViewRef = useRef(false);
+    const currentSectionRef = useRef(currentSection);
+    const syncActiveRef = useRef<() => void>(() => {});
+    const [observesPanel, setObservesPanel] = useState(true);
 
-    const sectionIds = useMemo<SectionId[]>(
-        () => ['about', 'work', 'skills', 'contact'],
-        [],
-    );
+    currentSectionRef.current = currentSection;
+
+    useImperativeHandle(ref, () => ({
+        scrollToSection(id) {
+            const content = contentRef.current;
+            const section = content?.querySelector<HTMLElement>(`#${id}`);
+            if (!content || !section) return;
+
+            if (isPanelScroller(content)) {
+                const top =
+                    section.getBoundingClientRect().top -
+                    content.getBoundingClientRect().top +
+                    content.scrollTop;
+                content.scrollTo({ top, behavior: 'smooth' });
+            } else {
+                const top = section.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
+
+            requestAnimationFrame(() => syncActiveRef.current());
+        },
+    }), []);
 
     useEffect(() => {
-        if (skipNextScrollIntoViewRef.current) {
-            skipNextScrollIntoViewRef.current = false;
-            return;
-        }
-        const el = contentRef.current?.querySelector<HTMLElement>(`#${currentSection}`);
-        if (!el) return;
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, [currentSection]);
+        const content = contentRef.current;
+        if (!content) return;
+
+        const syncMode = () => setObservesPanel(isPanelScroller(content));
+        syncMode();
+        const media = window.matchMedia('(max-width: 900px)');
+        media.addEventListener('change', syncMode);
+        return () => media.removeEventListener('change', syncMode);
+    }, []);
 
     useEffect(() => {
-        const root = contentRef.current;
-        if (!root) return;
+        const content = contentRef.current;
+        if (!content) return;
+
+        const publish = (id: SectionId | undefined) => {
+            if (!id || id === currentSectionRef.current) return;
+            onSectionChange(id);
+        };
+
+        const syncActive = () => {
+            if (isAtScrollEnd(content)) {
+                publish(SECTION_IDS[SECTION_IDS.length - 1]);
+                return;
+            }
+
+            const rootTop = observesPanel ? content.getBoundingClientRect().top : 0;
+            const rootHeight = observesPanel ? content.clientHeight : window.innerHeight;
+            const bandTop = rootTop + rootHeight * 0.3;
+            const bandBottom = rootTop + rootHeight * 0.4;
+            const topSection = [...content.querySelectorAll<HTMLElement>('section[id]')]
+                .filter((section) => {
+                    const rect = section.getBoundingClientRect();
+                    return rect.top < bandBottom && rect.bottom > bandTop;
+                })
+                .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)[0];
+
+            if (topSection && isSectionId(topSection.id)) publish(topSection.id);
+        };
+        syncActiveRef.current = syncActive;
 
         const observer = new IntersectionObserver(
-            (entries) => {
-                const rootRect = root.getBoundingClientRect();
-                const visible = entries
-                    .filter((e) => e.isIntersecting)
-                    .sort((a, b) => {
-                        const topA = a.boundingClientRect.top - rootRect.top;
-                        const topB = b.boundingClientRect.top - rootRect.top;
-                        return topA - topB;
-                    })[0];
-
-                const id = (visible?.target as HTMLElement | undefined)?.id as SectionId | undefined;
-                if (id && sectionIds.includes(id)) {
-                    skipNextScrollIntoViewRef.current = true;
-                    onSectionChange(id);
-                }
+            () => {
+                syncActive();
             },
-            { root, threshold: [0.1, 0.25, 0.5, 0.75, 1] },
+            {
+                root: observesPanel ? content : null,
+                rootMargin: '-30% 0px -60% 0px',
+                threshold: 0,
+            },
         );
 
-        root.querySelectorAll<HTMLElement>('section[id]').forEach((s) => observer.observe(s));
-        return () => observer.disconnect();
-    }, [onSectionChange, sectionIds]);
+        content.querySelectorAll<HTMLElement>('section[id]').forEach((section) => {
+            observer.observe(section);
+        });
+
+        const scrollTargets: EventTarget[] = observesPanel ? [content] : [window, document];
+        scrollTargets.forEach((target) => {
+            target.addEventListener('scroll', syncActive, { passive: true });
+        });
+        syncActive();
+
+        return () => {
+            syncActiveRef.current = () => {};
+            observer.disconnect();
+            scrollTargets.forEach((target) => {
+                target.removeEventListener('scroll', syncActive);
+            });
+        };
+    }, [observesPanel, onSectionChange]);
 
     return (
         <div className={styles.scrollSection}>
@@ -126,4 +205,4 @@ export const ScrollSection = ({ currentSection, onSectionChange }: ScrollSection
             <div className={styles.frame}></div>
         </div>
     );
-};
+});
