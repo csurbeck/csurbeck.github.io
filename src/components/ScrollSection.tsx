@@ -143,7 +143,7 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
 
                     <section id="about" className={styles.section} aria-label="About">
                         <h2 className={styles.sectionTitle}>
-                            Building beautiful bridges between humans and technology.
+                            Building bridges between humans and technology.
                         </h2>
                         <p className={styles.paragraphText}>
                             I believe technology has the potential to impact our lives positively and meaningfully everyday, and I strive to be an actuator in realizing that potential. 
