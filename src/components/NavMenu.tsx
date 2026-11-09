@@ -1,6 +1,7 @@
 import * as stylesImport from './NavMenu.module.scss';
 import linkedin_icon from '@src/assets/linkedin_icon.svg';
 import email_icon from '@src/assets/email_icon.svg';
+import orange_ladybug from '@src/assets/orange_ladybug.png';
 const styles = stylesImport as unknown as Record<string, string>;
 
 type SectionId = 'about' | 'work' | 'skills' | 'contact';
@@ -21,7 +22,10 @@ export const NavMenu = ({ currentSection, onNavigate }: NavMenuProps) => (
     <div className={styles.navSide}>
         <div className={styles.navSection}>
             <div className={styles.nameHeader}>
-                <span className={styles.name}>Claire Surbeck</span>
+                <div className={styles.nameContainer}>
+                    <span className={styles.name}>Claire Surbeck</span>
+                    <img src={orange_ladybug} alt="Ladybug navigation button" className={styles.ladybugIcon} />
+                </div>
                 <div className={styles.nameDiv} />
                 <span className={styles.title}>designer/developer</span>
             </div>

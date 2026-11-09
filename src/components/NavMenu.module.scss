@@ -29,12 +29,18 @@
 .nameHeader {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 2.5px;
 }
 
 .name {
     font-size: 24px;
     line-height: 1.1;
+}
+
+.nameContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .nameDiv {
@@ -91,20 +97,6 @@
     color: #ff6a00;
 }
 
-// .buttonUnderline {
-//     margin-top: 10px;
-//     width: 160px;
-//     height: 2px;
-//     background-color: #000026;
-//     border-radius: 2px;
-//     opacity: 1;
-//     transition: opacity 150ms ease;
-// }
-
-// .buttonUnderlineHidden {
-//     opacity: 0;
-// }
-
 .navFooter {
     margin-top: 39px;
 }
@@ -153,4 +145,9 @@
 .emailIcon {
     width: 30px;
     height: 23px;
+}
+
+.ladybugIcon {
+    width: 30px;
+    height: 30px;
 }
