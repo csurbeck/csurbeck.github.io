@@ -31,8 +31,9 @@
 
 .nameContainer {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
 }
 
 .nameDiv {
@@ -153,7 +154,6 @@
         grid-template-columns: minmax(0, 1fr) auto;
         grid-template-areas:
             "name icons"
-            "rule rule"
             "title title"
             "nav nav";
         align-items: center;
@@ -180,15 +180,25 @@
 
     .nameContainer {
         grid-area: name;
+        display: inline-grid;
+        grid-template-columns: max-content 30px;
+        width: max-content;
+        max-width: 100%;
         min-width: 0;
+        justify-self: start;
+        column-gap: 0;
     }
 
     .name {
+        grid-column: 1;
+        grid-row: 1;
         font-size: 22px;
     }
 
     .nameDiv {
-        grid-area: rule;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
     }
 
     .title {

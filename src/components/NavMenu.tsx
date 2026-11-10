@@ -23,8 +23,8 @@ export const NavMenu = ({ currentSection, onNavigate }: NavMenuProps) => (
             <div className={styles.nameHeader}>
                 <div className={styles.nameContainer}>
                     <span className={styles.name}>Claire Surbeck</span>
+                    <div className={styles.nameDiv} />
                 </div>
-                <div className={styles.nameDiv} />
                 <span className={styles.title}>designer/developer</span>
             </div>
 
