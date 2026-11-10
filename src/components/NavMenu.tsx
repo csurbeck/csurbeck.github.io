@@ -4,7 +4,7 @@ import email_icon from '@src/assets/email_icon.svg';
 import orange_ladybug from '@src/assets/orange_ladybug.png';
 const styles = stylesImport as unknown as Record<string, string>;
 
-type SectionId = 'about' | 'work' | 'skills' | 'contact';
+type SectionId = 'about' | 'work' | 'contact';
 
 type NavMenuProps = {
     currentSection: SectionId;
@@ -14,7 +14,6 @@ type NavMenuProps = {
 const NAV_ITEMS: Array<{ id: SectionId; label: string }> = [
     { id: 'about', label: 'about' },
     { id: 'work', label: 'work' },
-    { id: 'skills', label: 'skills' },
     { id: 'contact', label: 'contact' },
 ];
 
@@ -24,7 +23,7 @@ export const NavMenu = ({ currentSection, onNavigate }: NavMenuProps) => (
             <div className={styles.nameHeader}>
                 <div className={styles.nameContainer}>
                     <span className={styles.name}>Claire Surbeck</span>
-                    <img src={orange_ladybug} alt="Ladybug navigation button" className={styles.ladybugIcon} />
+                    {/* <img src={orange_ladybug} alt="Ladybug navigation button" className={styles.ladybugIcon} /> */}
                 </div>
                 <div className={styles.nameDiv} />
                 <span className={styles.title}>designer/developer</span>

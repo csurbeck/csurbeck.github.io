@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import * as stylesImport from './HomePage.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
 
-type SectionId = 'about' | 'work' | 'skills' | 'contact';
+type SectionId = 'about' | 'work' | 'contact';
 
 export function HomePage() {
     const [currentSection, setCurrentSection] = useState<SectionId>('about');

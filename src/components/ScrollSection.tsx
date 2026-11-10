@@ -1,11 +1,12 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import orangeLadybug from '@src/assets/orange_ladybug.png';
 import * as stylesImport from './ScrollSection.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
 
-type SectionId = 'about' | 'work' | 'skills' | 'contact';
+type SectionId = 'about' | 'work' | 'contact';
 
-const SECTION_IDS: SectionId[] = ['about', 'work', 'skills', 'contact'];
+const SECTION_IDS: SectionId[] = ['about', 'work', 'contact'];
 
 type ScrollSectionProps = {
     currentSection: SectionId;
@@ -15,6 +16,14 @@ type ScrollSectionProps = {
 export type ScrollSectionHandle = {
     scrollToSection: (id: SectionId) => void;
 };
+
+function SectionGap() {
+    return (
+        <div className={styles.sectionGap} aria-hidden="true">
+            <img src={orangeLadybug} alt="" className={styles.sectionGapIcon} />
+        </div>
+    );
+}
 
 function isSectionId(id: string): id is SectionId {
     return (SECTION_IDS as string[]).includes(id);
@@ -159,6 +168,8 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                         </p>
                     </section>
 
+                    <SectionGap />
+
                     <section id="work" className={styles.section} aria-label="Work">
                         <h2 className={styles.sectionTitle}>Selected work.</h2>
                         <p className={styles.paragraphText}>
@@ -177,20 +188,15 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             experience, spanning research, prototyping, and in-lab user
                             testing.
                         </p>
+                        <h3 className={styles.miniTitle}>Things I&apos;m good at.</h3>
+                        <p className={styles.paragraphText}>
+                            React, TypeScript, JavaScript, HTML/CSS, Python, Java, SQL
+                            {' || '}
+                            REST APIs, accessibility, responsive UI, Figma, component and end-to-end testing, Git
+                        </p>
                     </section>
 
-                    <section id="skills" className={styles.section} aria-label="Skills">
-                        <h2 className={styles.sectionTitle}>Skills.</h2>
-                        <p className={styles.paragraphText}>
-                            Language & Frameworks || React, Typescript, JavaScript, HTML/CSS, Python, Java, SQL
-                        </p>
-                        <p className={styles.paragraphText}>
-                            Web Development & Design || RESTful APIs, Responsive Design, Accessibility, UX/UI principles, Figma
-                        </p>
-                        <p className={styles.paragraphText}>
-                            Tools & Workflow || Git, Jira, Component & E2E Testing, Version Control, CI/CD
-                        </p>
-                    </section>
+                    <SectionGap />
 
                     <section id="contact" className={styles.section} aria-label="Contact">
                         <h2 className={styles.sectionTitle}>Put me on a team, product, or feature!</h2>
@@ -207,9 +213,9 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             {' || '}
                             <a href="https://www.linkedin.com/in/claire-surbeck/" className={styles.contactLink} target="_blank" rel="noopener noreferrer">linkedin</a>
                             {' || '}
-                            <a href="https://github.com/csurbeck" className={styles.contactLink}>github</a>
+                            <a href="https://github.com/csurbeck" className={styles.contactLink} target="_blank" rel="noopener noreferrer">github</a>
                             {' || '}
-                            <a href="RESUME_URL" className={styles.contactLink}>resume</a>
+                            <a href="RESUME_URL" className={styles.contactLink} target="_blank" rel="noopener noreferrer">resume</a>
                         </p>
                     </section>
                 </div>
