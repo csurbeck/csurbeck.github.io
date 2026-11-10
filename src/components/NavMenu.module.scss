@@ -18,14 +18,6 @@
     letter-spacing: 0.03em;
 }
 
-@media (max-width: 900px) {
-    .navSection {
-        position: static;
-        top: auto;
-        gap: 28px;
-    }
-}
-
 .nameHeader {
     display: flex;
     flex-direction: column;
@@ -150,4 +142,98 @@
 .ladybugIcon {
     width: 30px;
     height: 30px;
+}
+
+@media (max-width: 900px) {
+    .navSide {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "name icons"
+            "rule rule"
+            "title title"
+            "nav nav";
+        align-items: center;
+        column-gap: 16px;
+        row-gap: 6px;
+        height: auto;
+        box-sizing: border-box;
+        margin: 0 -20px;
+        padding: 16px 20px 14px;
+        background-color: #F3F3F3;
+        border-bottom: 1.5px solid #000026;
+    }
+
+    .navSection {
+        display: contents;
+        position: static;
+        top: auto;
+        gap: 0;
+    }
+
+    .nameHeader {
+        display: contents;
+    }
+
+    .nameContainer {
+        grid-area: name;
+        min-width: 0;
+    }
+
+    .name {
+        font-size: 22px;
+    }
+
+    .nameDiv {
+        grid-area: rule;
+    }
+
+    .title {
+        grid-area: title;
+    }
+
+    .primaryNav {
+        grid-area: nav;
+        min-width: 0;
+    }
+
+    .navButtonContainer {
+        flex-direction: row;
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .navItem {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .navButton {
+        width: 100%;
+        height: 36px;
+        justify-content: center;
+    }
+
+    .buttonText {
+        padding-left: 0;
+        font-size: 15px;
+    }
+
+    .navFooter {
+        grid-area: icons;
+        margin-top: 0;
+        align-self: start;
+    }
+
+    .navFooterIcons {
+        margin-bottom: 0;
+        gap: 16px;
+    }
+
+    .footerRule {
+        display: none;
+    }
 }

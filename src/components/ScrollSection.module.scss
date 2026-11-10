@@ -32,15 +32,6 @@ html {
     scroll-behavior: smooth;
 }
 
-@media (max-width: 900px) {
-    .content {
-        height: auto;
-        overflow: visible;
-        scroll-snap-type: none;
-        padding: 20px 0;
-    }
-}
-
 .sectionGap {
     height: 120px;
     display: flex;
@@ -81,7 +72,6 @@ html {
     margin: 0;
     font-size: 22px;
     line-height: 1.3;
-    // width: 260px;
     min-width: 120px;
 }
 
@@ -131,5 +121,51 @@ html {
         outline: 6px solid #ff6a00;
         border-radius: 5px;
         text-decoration: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .scrollSection {
+        margin-top: 8px;
+    }
+
+    .frame:first-child {
+        display: none;
+    }
+
+    .content {
+        height: auto;
+        overflow: visible;
+        scroll-snap-type: none;
+        padding: 8px 0 0;
+    }
+
+    .sectionGap {
+        height: 72px;
+    }
+
+    .section {
+        padding: 8px 0 20px;
+    }
+
+    .sectionTitle {
+        margin-bottom: 18px;
+        font-size: 28px;
+    }
+
+    .skillsContainer {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 28px;
+    }
+
+    .miniTitle {
+        min-width: 0;
+        font-size: 20px;
+    }
+
+    .paragraphText {
+        font-size: 16px;
+        line-height: 1.7;
     }
 }

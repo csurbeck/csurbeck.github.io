@@ -66,7 +66,12 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                     content.scrollTop;
                 content.scrollTo({ top, behavior: 'smooth' });
             } else {
-                const top = section.getBoundingClientRect().top + window.scrollY;
+                const nav = document.querySelector<HTMLElement>('[data-site-nav]');
+                const navOffset =
+                    nav && getComputedStyle(nav).position === 'sticky'
+                        ? nav.getBoundingClientRect().height + 12
+                        : 0;
+                const top = section.getBoundingClientRect().top + window.scrollY - navOffset;
                 window.scrollTo({ top, behavior: 'smooth' });
             }
 

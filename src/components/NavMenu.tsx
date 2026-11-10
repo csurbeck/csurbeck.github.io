@@ -18,7 +18,7 @@ const NAV_ITEMS: Array<{ id: SectionId; label: string }> = [
 ];
 
 export const NavMenu = ({ currentSection, onNavigate }: NavMenuProps) => (
-    <div className={styles.navSide}>
+    <div className={styles.navSide} data-site-nav>
         <div className={styles.navSection}>
             <div className={styles.nameHeader}>
                 <div className={styles.nameContainer}>
@@ -28,13 +28,13 @@ export const NavMenu = ({ currentSection, onNavigate }: NavMenuProps) => (
                 <span className={styles.title}>designer/developer</span>
             </div>
 
-            <nav aria-label="Primary">
+            <nav className={styles.primaryNav} aria-label="Primary">
                 <div className={styles.navButtonContainer}>
                     {NAV_ITEMS.map(({ id, label }) => {
                         const isCurrent = currentSection === id;
 
                         return (
-                            <div key={id}>
+                            <div key={id} className={styles.navItem}>
                                 <div
                                     className={`${styles.navButton} ${isCurrent ? styles.navButtonActive : ''}`}
                                     onClick={() => onNavigate(id)}
@@ -68,7 +68,7 @@ export const NavMenu = ({ currentSection, onNavigate }: NavMenuProps) => (
                     <img src={email_icon} alt="Email navigation button" className={styles.emailIcon} />
                 </a>
             </div>
-            <div className={styles.nameDiv} />
+            <div className={`${styles.nameDiv} ${styles.footerRule}`} />
         </div>
     </div>
 );

@@ -18,10 +18,19 @@
 @media (max-width: 900px) {
     .homePage {
         height: auto;
+        min-height: 100vh;
+        min-width: 0;
+        align-items: stretch;
+        justify-content: flex-start;
         overflow: visible;
     }
 
     .contentContainer {
+        width: 100%;
         height: auto;
+        flex-direction: column;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        padding: 0 20px 48px;
     }
 }
