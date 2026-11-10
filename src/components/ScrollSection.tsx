@@ -164,7 +164,8 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             attitude and a commitment to leave things better than I found them.
                         </p>
                         <p className={styles.paragraphText}>
-                            When I'm not coding, you'll likely find trialing a new recipe, puzzling, or grounding myself at pilates.
+                            When I'm not coding, you'll likely find trialing a new recipe, drinking coffee, puzzling, or trying to counteract my
+                             SWE posture at pilates.
                         </p>
                     </section>
 
@@ -173,7 +174,7 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                     <section id="work" className={styles.section} aria-label="Work">
                         <h2 className={styles.sectionTitle}>Selected work.</h2>
                         <p className={styles.paragraphText}>
-                            <Link to="/work/reorderable-table" className={styles.workLink}>
+                            <Link to="/work/reorderable-table" className={styles.styledLink}>
                                 Reorderable table
                             </Link>
                             {' '}— a keyboard-accessible drag-and-drop table for ordered
@@ -181,19 +182,21 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             expanded modes from a single component.
                         </p>
                         <p className={styles.paragraphText}>
-                            <Link to="/work/expedia-trips" className={styles.workLink}>
+                            <Link to="/work/expedia-trips" className={styles.styledLink}>
                                 Expedia Trips
                             </Link>
                             {' '}— a senior capstone redesign of Expedia&apos;s mobile Trips
                             experience, spanning research, prototyping, and in-lab user
                             testing.
                         </p>
-                        <h3 className={styles.miniTitle}>Things I&apos;m good at.</h3>
-                        <p className={styles.paragraphText}>
-                            React, TypeScript, JavaScript, HTML/CSS, Python, Java, SQL
-                            {' || '}
-                            REST APIs, accessibility, responsive UI, Figma, component and end-to-end testing, Git
-                        </p>
+                        <div className={styles.skillsContainer}>
+                            <h3 className={styles.miniTitle}>Things I&apos;m good at.</h3>
+                            <p className={styles.paragraphText}>
+                                React, TypeScript, JavaScript, HTML/CSS, Python, Java, SQL,
+                                REST APIs, accessibility, responsive UI, reflow, Figma, component & end-to-end testing, 
+                                Git, and bringing in baked goods for coworkers.
+                            </p>
+                        </div>
                     </section>
 
                     <SectionGap />
@@ -209,13 +212,13 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             Based on the West Coast between Seattle and the Bay Area. Open to on-site, hybrid, or remote.
                         </p>
                         <p className={styles.paragraphText}>
-                            <a href="mailto:clairesurbeck@gmail.com" className={styles.contactLink}>email</a>
+                            <a href="mailto:clairesurbeck@gmail.com" className={styles.styledLink}>email</a>
                             {' || '}
-                            <a href="https://www.linkedin.com/in/claire-surbeck/" className={styles.contactLink} target="_blank" rel="noopener noreferrer">linkedin</a>
+                            <a href="https://www.linkedin.com/in/claire-surbeck/" className={styles.styledLink} target="_blank" rel="noopener noreferrer">linkedin</a>
                             {' || '}
-                            <a href="https://github.com/csurbeck" className={styles.contactLink} target="_blank" rel="noopener noreferrer">github</a>
+                            <a href="https://github.com/csurbeck" className={styles.styledLink} target="_blank" rel="noopener noreferrer">github</a>
                             {' || '}
-                            <a href="RESUME_URL" className={styles.contactLink} target="_blank" rel="noopener noreferrer">resume</a>
+                            <a href="RESUME_URL" className={styles.styledLink} target="_blank" rel="noopener noreferrer">resume</a>
                         </p>
                     </section>
                 </div>

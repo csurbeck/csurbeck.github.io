@@ -23,7 +23,6 @@ export const NavMenu = ({ currentSection, onNavigate }: NavMenuProps) => (
             <div className={styles.nameHeader}>
                 <div className={styles.nameContainer}>
                     <span className={styles.name}>Claire Surbeck</span>
-                    {/* <img src={orange_ladybug} alt="Ladybug navigation button" className={styles.ladybugIcon} /> */}
                 </div>
                 <div className={styles.nameDiv} />
                 <span className={styles.title}>designer/developer</span>

@@ -67,12 +67,22 @@ html {
     line-height: 1.25;
 }
 
+.skillsContainer {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+}
+
 .miniTitle {
     color: #000026;
     font-weight: 400;
-    margin: 12px 0 12px;
+    margin: 0;
     font-size: 22px;
     line-height: 1.3;
+    // width: 260px;
+    min-width: 120px;
 }
 
 .paragraphText {
@@ -100,7 +110,7 @@ html {
     opacity: 0.7;
 }
 
-.contactLink {
+.styledLink {
     color: #000026;
     font-weight: 700;
     text-decoration: underline;
