@@ -195,10 +195,21 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                     <section id="contact" className={styles.section} aria-label="Contact">
                         <h2 className={styles.sectionTitle}>Put me on a team, product, or feature!</h2>
                         <p className={styles.paragraphText}>
-                            Email: <a href="mailto:clairesurbeck@gmail.com" className={styles.contactLink}>clairesurbeck@gmail.com</a>
+                            I&apos;m looking for frontend, full-stack, and UX engineering roles on product
+                            teams. I want to build things things that people will directly interact with and make 
+                            them love to use it.
                         </p>
                         <p className={styles.paragraphText}>
-                            LinkedIn: <a href="https://www.linkedin.com/in/claire-surbeck-522571100/" className={styles.contactLink}>LinkedIn</a>
+                            Based on the West Coast between Seattle and the Bay Area. Open to on-site, hybrid, or remote.
+                        </p>
+                        <p className={styles.paragraphText}>
+                            <a href="mailto:clairesurbeck@gmail.com" className={styles.contactLink}>email</a>
+                            {' || '}
+                            <a href="https://www.linkedin.com/in/claire-surbeck/" className={styles.contactLink} target="_blank" rel="noopener noreferrer">linkedin</a>
+                            {' || '}
+                            <a href="https://github.com/csurbeck" className={styles.contactLink}>github</a>
+                            {' || '}
+                            <a href="RESUME_URL" className={styles.contactLink}>resume</a>
                         </p>
                     </section>
                 </div>
