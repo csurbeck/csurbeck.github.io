@@ -1,7 +1,7 @@
 import homepage from '@src/assets/callassure/homepage.png';
 import howItWorks from '@src/assets/callassure/how-it-works.png';
 import loginPage from '@src/assets/callassure/login.png';
-import { BackToPortfolio } from '@src/components/BackToPortfolio';
+import { BackToSelectedWork } from '@src/components/BackToSelectedWork';
 import { preloadImage } from '@src/preloadImage';
 import { useEffect } from 'react';
 import * as stylesImport from '@src/styles/projectPage.module.scss';
@@ -28,7 +28,7 @@ export function CallAssurePage() {
         <div className={styles.page}>
             <div className={styles.shell}>
                 <header className={styles.header}>
-                    <BackToPortfolio />
+                    <BackToSelectedWork />
                     <img
                         src={homepage}
                         alt="CallAssure homepage on a laptop: assuring peace of mind and independence"
@@ -139,7 +139,7 @@ export function CallAssurePage() {
                         </p>
                     </p>
                 </section>
-                <BackToPortfolio />
+                <BackToSelectedWork />
             </div>
         </div>
     );

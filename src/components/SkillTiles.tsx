@@ -39,10 +39,10 @@ export function SkillTiles() {
     return (
         <div className={styles.hook}>
             <h1 className={styles.greeting}>
-                <span className={styles.greetingLine}>Hi, thanks for visiting!</span>
+                <span className={styles.greetingLine}>Hi, I'm glad you're here!</span>
                 <span className={styles.greetingLine}>What do you want to see?</span>
             </h1>
-            <p className={styles.prompt}>Explore my work</p>
+            <p className={styles.prompt}>Jump to a project</p>
             <ul className={styles.tiles}>
                 {TILES.map((tile) => (
                     <li key={tile.to}>

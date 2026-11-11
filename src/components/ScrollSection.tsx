@@ -7,9 +7,9 @@ import { SkillTiles } from './SkillTiles';
 import * as stylesImport from './ScrollSection.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
 
-type SectionId = 'about' | 'work' | 'contact';
+type SectionId = 'landing' | 'about' | 'work' | 'contact';
 
-const SECTION_IDS: SectionId[] = ['about', 'work', 'contact'];
+const SECTION_IDS: SectionId[] = ['landing', 'about', 'work', 'contact'];
 
 type ScrollSectionProps = {
     currentSection: SectionId;
@@ -17,7 +17,7 @@ type ScrollSectionProps = {
 };
 
 export type ScrollSectionHandle = {
-    scrollToSection: (id: SectionId) => void;
+    scrollToSection: (id: SectionId, behavior?: ScrollBehavior) => void;
 };
 
 function SectionGap() {
@@ -57,17 +57,18 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
     currentSectionRef.current = currentSection;
 
     useImperativeHandle(ref, () => ({
-        scrollToSection(id) {
+        scrollToSection(id, behavior: ScrollBehavior = 'smooth') {
             const content = contentRef.current;
             const section = content?.querySelector<HTMLElement>(`#${id}`);
             if (!content || !section) return;
 
             if (isPanelScroller(content)) {
+                if (behavior !== 'smooth') window.scrollTo(0, 0);
                 const top =
                     section.getBoundingClientRect().top -
                     content.getBoundingClientRect().top +
                     content.scrollTop;
-                content.scrollTo({ top, behavior: 'smooth' });
+                content.scrollTo({ top, behavior });
             } else {
                 const nav = document.querySelector<HTMLElement>('[data-site-nav]');
                 const navOffset =
@@ -75,7 +76,7 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                         ? nav.getBoundingClientRect().height + 12
                         : 0;
                 const top = section.getBoundingClientRect().top + window.scrollY - navOffset;
-                window.scrollTo({ top, behavior: 'smooth' });
+                window.scrollTo({ top, behavior });
             }
 
             requestAnimationFrame(() => syncActiveRef.current());
@@ -187,18 +188,14 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             Building bridges between humans and technology.
                         </h2>
                         <p className={styles.paragraphText}>
-                            I believe technology has the potential to impact our lives positively and meaningfully everyday. 
-                            While some technologies might be downright delightful, all should be as frictionless as possible. 
-                            I strive to build intuitive platform experiences that bridge the gap between complex data and the people who use it.
-                        </p>
-                        <p className={styles.paragraphText}>
                             My journey has taken me from wiring back-end systems as an intern at REI to spearheading front-end innovation 
-                            for projects with CallAssure, Expedia, and now Qualtrics. As a former Division I athlete, I have a team-oriented 
-                            attitude and a commitment to leave things better than I found them.
+                            for projects with CallAssure and Expedia. Now Qualtrics, I'm building intuitive platform experiences that bridge 
+                            the gap between complex data and the people who use it. 
                         </p>
                         <p className={styles.paragraphText}>
-                            When I'm not coding, you'll likely find trialing a new recipe, drinking coffee, puzzling, or trying to counterbalance my
-                             SWE posture at pilates.
+                            As a former Division I athlete, I have a team-oriented attitude and a commitment to leave things better than I found them.
+                            When I'm not coding, you'll likely find trialing a new recipe, drinking coffee, puzzling, or counterbalancing my
+                            SWE posture with pilates.
                         </p>
                     </section>
 
@@ -255,8 +252,8 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                     <section id="contact" className={styles.section} aria-label="Contact">
                         <h2 className={styles.sectionTitle}>Put me on a team, product, or feature!</h2>
                         <p className={styles.paragraphText}>
-                            I'm looking for frontend, full-stack, and UX/design engineering roles on product or engineering teams. 
-                            I want to build interfaces people use directly, and love coming back to.
+                            I'm looking for frontend, full-stack, and UX/design engineer roles. 
+                            I love building surfaces users interact with directly, and making them intuitve and seamless so they want to come back.
                         </p>
                         <p className={styles.paragraphText}>
                             Based on the West Coast between Seattle and the Bay Area. Open to on-site, hybrid, or remote.

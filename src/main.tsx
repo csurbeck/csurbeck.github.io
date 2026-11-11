@@ -1,9 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import ladybug from '@src/assets/ladybug.svg'
+import whiteLadybug from '@src/assets/ladybug.svg'
 import orangeLadybug from '@src/assets/small-orange-ladybug.svg'
 import App from './App'
-import './App.css'
 
 const colorScheme = window.matchMedia('(prefers-color-scheme: dark)')
 
@@ -15,7 +14,7 @@ function applyFavicon() {
         document.head.appendChild(icon)
     }
     icon.type = 'image/svg+xml'
-    icon.href = colorScheme.matches ? ladybug : orangeLadybug
+    icon.href = colorScheme.matches ? whiteLadybug : orangeLadybug
 }
 
 applyFavicon()

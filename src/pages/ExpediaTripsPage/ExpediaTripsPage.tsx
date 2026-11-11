@@ -5,7 +5,7 @@ import midFiPrototypes from '@src/assets/expedia-trips/mid-fi-prototypes.jpg';
 import phoneScreens from '@src/assets/expedia-trips/phone-screens.png';
 import researchFindings from '@src/assets/expedia-trips/research-findings.jpg';
 import userTesting from '@src/assets/expedia-trips/user-testing.jpeg';
-import { BackToPortfolio } from '@src/components/BackToPortfolio';
+import { BackToSelectedWork } from '@src/components/BackToSelectedWork';
 import { preloadImage } from '@src/preloadImage';
 import { useEffect } from 'react';
 import * as stylesImport from '@src/styles/projectPage.module.scss';
@@ -39,7 +39,7 @@ export function ExpediaTripsPage() {
         <div className={styles.page}>
             <div className={styles.shell}>
                 <header className={styles.header}>
-                    <BackToPortfolio />
+                    <BackToSelectedWork />
                     <img
                         src={phoneScreens}
                         alt="Example mobile app screens from the Expedia Trips redesign"
@@ -196,7 +196,7 @@ export function ExpediaTripsPage() {
                         and to our capstone professors and TAs for guiding us through it.
                     </p>
                 </section>
-                <BackToPortfolio />
+                <BackToSelectedWork />
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-import { BackToPortfolio } from '@src/components/BackToPortfolio';
+import { BackToSelectedWork } from '@src/components/BackToSelectedWork';
 import {
     ReorderableTable,
     type ReorderableColumn,
@@ -99,7 +99,7 @@ export function ReorderableTablePage() {
         <div className={styles.page}>
             <div className={styles.shell}>
                 <header className={styles.header}>
-                    <BackToPortfolio />
+                    <BackToSelectedWork />
                     <h1 className={styles.title}>Reorderable table</h1>
                     <p className={styles.sectionBody}>
                         A keyboard-accessible drag-and-drop table for managing ordered data
@@ -150,16 +150,7 @@ export function ReorderableTablePage() {
                         />
                     </div>
                 </section>
-
-                {/* <section className={styles.section} aria-labelledby="result-heading">
-                    <h2 id="result-heading" className={styles.sectionLabel}>
-                        Result / reflection
-                    </h2>
-                    <p className={styles.sectionBody}>
-                        One shared component replaced two, and I&apos;d add undo next.
-                    </p>
-                </section> */}
-                <BackToPortfolio />
+                <BackToSelectedWork />
             </div>
         </div>
     );
