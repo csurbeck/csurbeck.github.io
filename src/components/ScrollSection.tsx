@@ -1,6 +1,8 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import orangeLadybug from '@src/assets/orange_ladybug.png';
+import { preloadCallAssureImages } from '@src/pages/CallAssurePage/CallAssurePage';
+import { preloadExpediaImages } from '@src/pages/ExpediaTripsPage/ExpediaTripsPage';
 import * as stylesImport from './ScrollSection.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
 
@@ -88,6 +90,24 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
         const media = window.matchMedia('(max-width: 900px)');
         media.addEventListener('change', syncMode);
         return () => media.removeEventListener('change', syncMode);
+    }, []);
+
+    useEffect(() => {
+        const work = contentRef.current?.querySelector('#work');
+        if (!work) return;
+
+        const warmProjectImages = () => {
+            preloadExpediaImages();
+            preloadCallAssureImages();
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            if (!entries.some((entry) => entry.isIntersecting)) return;
+            warmProjectImages();
+            observer.disconnect();
+        });
+        observer.observe(work);
+        return () => observer.disconnect();
     }, []);
 
     useEffect(() => {
@@ -187,7 +207,12 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             expanded modes from a single component.
                         </p>
                         <p className={styles.paragraphText}>
-                            <Link to="/work/expedia-trips" className={styles.styledLink}>
+                            <Link
+                                to="/work/expedia-trips"
+                                className={styles.styledLink}
+                                onMouseEnter={() => preloadExpediaImages()}
+                                onFocus={() => preloadExpediaImages()}
+                            >
                                 Expedia Trips
                             </Link>
                             {' '}— a senior capstone redesign of Expedia&apos;s mobile Trips
@@ -195,7 +220,12 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             testing.
                         </p>
                         <p className={styles.paragraphText}>
-                            <Link to="/work/callassure" className={styles.styledLink}>
+                            <Link
+                                to="/work/callassure"
+                                className={styles.styledLink}
+                                onMouseEnter={() => preloadCallAssureImages()}
+                                onFocus={() => preloadCallAssureImages()}
+                            >
                                 CallAssure
                             </Link>
                             {' '}— a website taken from 0 to 1, from Figma mockups through

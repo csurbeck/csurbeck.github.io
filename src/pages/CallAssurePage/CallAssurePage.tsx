@@ -1,13 +1,25 @@
 import homepage from '@src/assets/callassure/homepage.png';
-import loginPage from '@src/assets/callassure/login.png';
 import howItWorks from '@src/assets/callassure/how-it-works.png';
+import loginPage from '@src/assets/callassure/login.png';
 import { BackToPortfolio } from '@src/components/BackToPortfolio';
+import { preloadImage } from '@src/preloadImage';
 import { useEffect } from 'react';
 import * as stylesImport from '@src/styles/projectPage.module.scss';
 
 const styles = stylesImport as unknown as Record<string, string>;
 
+const supportingImages = [howItWorks, loginPage];
+
+export function preloadCallAssureImages(heroPriority: 'high' | 'low' = 'low') {
+    preloadImage(homepage, heroPriority);
+    for (const src of supportingImages) {
+        preloadImage(src, 'low');
+    }
+}
+
 export function CallAssurePage() {
+    preloadCallAssureImages('high');
+
     useEffect(() => {
         document.title = 'Claire Surbeck – CallAssure';
     }, []);
@@ -21,6 +33,8 @@ export function CallAssurePage() {
                         src={homepage}
                         alt="CallAssure homepage on a laptop: assuring peace of mind and independence"
                         className={styles.heroImage}
+                        fetchPriority="high"
+                        decoding="async"
                     />
                     <h1 className={styles.title}>CallAssure</h1>
                     <dl className={styles.meta}>
@@ -77,11 +91,15 @@ export function CallAssurePage() {
                         src={howItWorks}
                         alt="How it Works section with the headline A Call a Day, Even Far Away"
                         className={styles.heroImage}
+                        fetchPriority="low"
+                        decoding="async"
                     />
                     <img
                         src={loginPage}
                         alt="Phone mockups of an incoming CallAssure call and a check-in text"
                         className={styles.heroImage}
+                        fetchPriority="low"
+                        decoding="async"
                     />
                 </section>
 
