@@ -237,7 +237,7 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             <p className={styles.paragraphText}>
                                 React, TypeScript, JavaScript, HTML/CSS, Python, Java, SQL,
                                 REST APIs, accessibility, responsive UI, reflow, Figma, component & end-to-end testing, 
-                                Git, and bringing in baked goods for coworkers.
+                                Git.
                             </p>
                         </div>
                     </section>
