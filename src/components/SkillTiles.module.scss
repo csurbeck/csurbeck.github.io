@@ -8,6 +8,19 @@
     margin: 48px 0 8px;
 }
 
+.greeting {
+    margin: 0;
+    color: #000026;
+    font-family: 'Hedvig Letters Serif', serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .prompt {
     margin: 0 0 18px;
     font-family: 'IBM Plex Sans', sans-serif;
@@ -179,6 +192,12 @@
     .scrim,
     .action {
         transition: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .greeting {
+        font-size: 28px;
     }
 }
 

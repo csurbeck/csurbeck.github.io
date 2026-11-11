@@ -38,7 +38,11 @@ const TILES = [
 export function SkillTiles() {
     return (
         <div className={styles.hook}>
-            <p className={styles.prompt}>What do you want to see?</p>
+            <h1 className={styles.greeting}>
+                <span className={styles.greetingLine}>Hi, thanks for visiting!</span>
+                <span className={styles.greetingLine}>What do you want to see?</span>
+            </h1>
+            <p className={styles.prompt}>Explore my work</p>
             <ul className={styles.tiles}>
                 {TILES.map((tile) => (
                     <li key={tile.to}>

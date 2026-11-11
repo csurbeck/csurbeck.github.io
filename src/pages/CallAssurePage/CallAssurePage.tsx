@@ -56,16 +56,18 @@ export function CallAssurePage() {
                         Overview
                     </h2>
                     <p className={styles.sectionBody}>
-                        I joined CallAssure to bring the website and online product features
-                        to life. The work ran from iterations and mockups in Figma through a
-                        React and TypeScript build — a full pass at taking a product from 0
-                        to 1.
-                    </p>
-                    <p className={styles.sectionBody}>
-                        CallAssure places automated check-in calls and texts to older adults
-                        and alerts the family when a response is missed. The site has to
-                        explain that to two people at once: the person staying independent
-                        at home, and the family who wants to know they&apos;re okay.
+                        <p>
+                            I joined CallAssure to bring the website and online product features
+                            to life. The work ran from iterations and mockups in Figma through a
+                            React and TypeScript build, my first full pass at taking a product from 0
+                            to 1.
+                        </p>
+                        <p>
+                            CallAssure places automated check-in calls and texts to older adults
+                            and alerts the family when a response is missed. The site has to
+                            explain that to two people at once: the person staying independent
+                            at home, and the family who wants to know they&apos;re okay.
+                        </p>
                     </p>
                 </section>
 
@@ -74,18 +76,20 @@ export function CallAssurePage() {
                         The site
                     </h2>
                     <p className={styles.sectionBody}>
-                        The homepage is live at{' '}
-                        <a
-                            href="https://call-assure.com/"
-                            className={styles.textLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            call-assure.com
-                        </a>
-                        . It leads with that promise and a way to get started. Further down,
-                        How it Works shows the daily call and the check-in message families
-                        are waiting on.
+                        <p>
+                            The homepage is live at{' '}
+                            <a
+                                href="https://call-assure.com/"
+                                className={styles.textLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                call-assure.com
+                            </a>
+                            . It leads with that promise and a way to get started. Further down,
+                            <b> How it Works</b> shows the daily call and the check-in message families
+                            are waiting on.
+                        </p>
                     </p>
                     <img
                         src={howItWorks}
@@ -108,10 +112,17 @@ export function CallAssurePage() {
                         Takeaways
                     </h2>
                     <p className={styles.sectionBody}>
-                        Shipping the interface, not only the mockups, is what made the
-                        lesson stick. A 0-to-1 site has to hold up once it leaves Figma:
-                        the navigation, the path to sign up, and a plain explanation of
-                        how a check-in actually works.
+                        <p>
+                            Shipping the whole site, not just mock ups or code, is what made the project stick.
+                            It was daunting to work on something by myself and have to rely on my own judgement 
+                            for most decisions, while learning React and TypeScript along the way. Ultimately, it taught 
+                            me to keep pushing forward through ambiguity and trust that the right path forward will
+                            make itself clear. 
+                        </p>
+                        <p>
+                            A 0-to-1 site has to hold up once it leaves Figma: the navigation, the path to sign up, 
+                            and a plain explanation of how a check-in actually works.
+                        </p>
                     </p>
                 </section>
 
@@ -120,9 +131,12 @@ export function CallAssurePage() {
                         Follow-up
                     </h2>
                     <p className={styles.sectionBody}>
-                        I would preload the images. They come in slowly, and waiting on
-                        them while the rest of the page is already there is not a good
-                        experience.
+                        <p>
+                            Something that really stands out to me now that I have more formal industry experience are 
+                            UX edge cases that can be mediated through code. For example, something as simple as preloading 
+                            images. Waiting on them while the rest of the page is a less-than-ideal experience, and is
+                            an amatuer web development mistake that I won't make now.
+                        </p>
                     </p>
                 </section>
                 <BackToPortfolio />

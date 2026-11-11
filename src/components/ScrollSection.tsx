@@ -176,6 +176,12 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                 <div className={styles.frame}></div>
                 <div ref={contentRef} className={styles.content}>
 
+                    <section id="landing" className={styles.section} aria-label="Landing">
+                        <SkillTiles />
+                    </section>
+
+                    <SectionGap />
+
                     <section id="about" className={styles.section} aria-label="About">
                         <h2 className={styles.sectionTitle}>
                             Building bridges between humans and technology.
@@ -194,7 +200,6 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             When I'm not coding, you'll likely find trialing a new recipe, drinking coffee, puzzling, or trying to counterbalance my
                              SWE posture at pilates.
                         </p>
-                        <SkillTiles />
                     </section>
 
                     <SectionGap />
