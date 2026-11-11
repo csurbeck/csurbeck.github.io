@@ -1,8 +1,9 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import orangeLadybug from '@src/assets/orange_ladybug.png';
+import orangeLadybug from '@src/assets/orange-ladybug.png';
 import { preloadCallAssureImages } from '@src/pages/CallAssurePage/CallAssurePage';
 import { preloadExpediaImages } from '@src/pages/ExpediaTripsPage/ExpediaTripsPage';
+import { SkillTiles } from './SkillTiles';
 import * as stylesImport from './ScrollSection.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
 
@@ -180,18 +181,20 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             Building bridges between humans and technology.
                         </h2>
                         <p className={styles.paragraphText}>
-                            I believe technology has the potential to impact our lives positively and meaningfully everyday, and I strive to be an actuator in realizing that potential. 
+                            I believe technology has the potential to impact our lives positively and meaningfully everyday. 
+                            While some technologies might be downright delightful, all should be as frictionless as possible. 
                             I strive to build intuitive platform experiences that bridge the gap between complex data and the people who use it.
                         </p>
                         <p className={styles.paragraphText}>
                             My journey has taken me from wiring back-end systems as an intern at REI to spearheading front-end innovation 
-                            for projects with CallAssure, Expedia, and now Qualtrics. As a former Division I athlete, I tend to have an all-in 
+                            for projects with CallAssure, Expedia, and now Qualtrics. As a former Division I athlete, I have a team-oriented 
                             attitude and a commitment to leave things better than I found them.
                         </p>
                         <p className={styles.paragraphText}>
-                            When I'm not coding, you'll likely find trialing a new recipe, drinking coffee, puzzling, or trying to counteract my
+                            When I'm not coding, you'll likely find trialing a new recipe, drinking coffee, puzzling, or trying to counterbalance my
                              SWE posture at pilates.
                         </p>
+                        <SkillTiles />
                     </section>
 
                     <SectionGap />
@@ -247,9 +250,8 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                     <section id="contact" className={styles.section} aria-label="Contact">
                         <h2 className={styles.sectionTitle}>Put me on a team, product, or feature!</h2>
                         <p className={styles.paragraphText}>
-                            I&apos;m looking for frontend, full-stack, and UX engineering roles on product
-                            teams. I want to build things things that people will directly interact with and make 
-                            them love to use it.
+                            I'm looking for frontend, full-stack, and UX/design engineering roles on product or engineering teams. 
+                            I want to build interfaces people use directly, and love coming back to.
                         </p>
                         <p className={styles.paragraphText}>
                             Based on the West Coast between Seattle and the Bay Area. Open to on-site, hybrid, or remote.

@@ -1,7 +1,6 @@
 import * as stylesImport from './NavMenu.module.scss';
 import linkedin_icon from '@src/assets/linkedin_icon.svg';
 import email_icon from '@src/assets/email_icon.svg';
-import orange_ladybug from '@src/assets/orange_ladybug.png';
 const styles = stylesImport as unknown as Record<string, string>;
 
 type SectionId = 'about' | 'work' | 'contact';
