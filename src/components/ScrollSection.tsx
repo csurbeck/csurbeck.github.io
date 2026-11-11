@@ -194,6 +194,14 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             experience, spanning research, prototyping, and in-lab user
                             testing.
                         </p>
+                        <p className={styles.paragraphText}>
+                            <Link to="/work/callassure" className={styles.styledLink}>
+                                CallAssure
+                            </Link>
+                            {' '}— a website taken from 0 to 1, from Figma mockups through
+                            a React and TypeScript build of the marketing site and
+                            check-in product.
+                        </p>
                         <div className={styles.skillsContainer}>
                             <h3 className={styles.miniTitle}>Things I&apos;m good at.</h3>
                             <p className={styles.paragraphText}>

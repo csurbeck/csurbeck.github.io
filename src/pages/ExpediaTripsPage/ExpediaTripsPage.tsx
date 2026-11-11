@@ -7,7 +7,7 @@ import chatFeature from '@src/assets/expedia-trips/chat-feature.jpg';
 import researchFindings from '@src/assets/expedia-trips/research-findings.jpg';
 import midFiPrototypes from '@src/assets/expedia-trips/mid-fi-prototypes.jpg';
 import userTesting from '@src/assets/expedia-trips/user-testing.jpeg';
-import * as stylesImport from './ExpediaTripsPage.module.scss';
+import * as stylesImport from '@src/styles/projectPage.module.scss';
 
 const styles = stylesImport as unknown as Record<string, string>;
 

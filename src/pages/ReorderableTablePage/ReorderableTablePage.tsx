@@ -4,9 +4,11 @@ import {
     type ReorderableColumn,
 } from '@src/demo_components/ReorderableTable';
 import { useEffect, useMemo, useState } from 'react';
-import * as stylesImport from './ReorderableTablePage.module.scss';
+import * as stylesImport from '@src/styles/projectPage.module.scss';
+import * as pageStylesImport from './ReorderableTablePage.module.scss';
 
 const styles = stylesImport as unknown as Record<string, string>;
+const pageStyles = pageStylesImport as unknown as Record<string, string>;
 
 type DemoRow = {
     id: string;
@@ -47,9 +49,9 @@ const INITIAL_ROWS: DemoRow[] = [
 ];
 
 function statusClass(status: DemoRow['status']) {
-    if (status === 'Published') return styles.statusActive;
-    if (status === 'Draft') return styles.statusDraft;
-    return styles.statusPaused;
+    if (status === 'Published') return pageStyles.statusActive;
+    if (status === 'Draft') return pageStyles.statusDraft;
+    return pageStyles.statusPaused;
 }
 
 export function ReorderableTablePage() {
@@ -83,7 +85,7 @@ export function ReorderableTablePage() {
                 id: 'status',
                 header: 'Status',
                 cell: (row) => (
-                    <span className={`${styles.status} ${statusClass(row.status)}`}>
+                    <span className={`${pageStyles.status} ${statusClass(row.status)}`}>
                         {row.status}
                     </span>
                 ),
@@ -99,7 +101,7 @@ export function ReorderableTablePage() {
                 <header className={styles.header}>
                     <BackToPortfolio />
                     <h1 className={styles.title}>Reorderable table</h1>
-                    <p className={styles.lede}>
+                    <p className={styles.sectionBody}>
                         A keyboard-accessible drag-and-drop table for managing ordered data
                         with hierarchical relationships.
                     </p>
@@ -138,7 +140,7 @@ export function ReorderableTablePage() {
                         or down. Press Space or Enter to drop the row in its new position. Press Escape to drop 
                         the row back in its original position.
                     </p>
-                    <div className={styles.demo}>
+                    <div className={pageStyles.demo}>
                         <ReorderableTable
                             title="Hierarchy"
                             items={items}
