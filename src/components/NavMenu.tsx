@@ -1,6 +1,6 @@
 import * as stylesImport from './NavMenu.module.scss';
-import linkedin_icon from '@src/assets/linkedin_icon.svg';
-import email_icon from '@src/assets/email_icon.svg';
+import linkedinIcon from '@src/assets/linkedin-icon.svg';
+import emailIcon from '@src/assets/email-icon.svg';
 const styles = stylesImport as unknown as Record<string, string>;
 
 type SectionId = 'about' | 'work' | 'contact';
@@ -61,10 +61,10 @@ export const NavMenu = ({ currentSection, onNavigate }: NavMenuProps) => (
         <div className={styles.navFooter}>
             <div className={styles.navFooterIcons}>
                 <a href="https://www.linkedin.com/in/claire-surbeck/" target="_blank" rel="noopener noreferrer" className={styles.navFooterIcon}>
-                    <img src={linkedin_icon} alt="LinkedIn navigation button" className={styles.linkedinIcon} />
+                    <img src={linkedinIcon} alt="LinkedIn navigation button" className={styles.linkedinIcon} />
                 </a>
                 <a href="mailto:clairesurbeck@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.navFooterIcon}>
-                    <img src={email_icon} alt="Email navigation button" className={styles.emailIcon} />
+                    <img src={emailIcon} alt="Email navigation button" className={styles.emailIcon} />
                 </a>
             </div>
             <div className={`${styles.nameDiv} ${styles.footerRule}`} />

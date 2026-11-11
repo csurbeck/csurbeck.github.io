@@ -77,25 +77,7 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
-            favicon: './src/assets/ladybug.svg',
         }),
-        {
-            apply(compiler) {
-                compiler.hooks.compilation.tap('LadybugFavicon', (compilation) => {
-                    HtmlWebpackPlugin.getCompilationHooks(compilation).alterAssetTags.tap(
-                        'LadybugFavicon',
-                        (data) => {
-                            for (const tag of data.assetTags.meta) {
-                                if (tag.attributes?.rel === 'icon') {
-                                    tag.attributes.type = 'image/svg+xml'
-                                }
-                            }
-                            return data
-                        },
-                    )
-                })
-            },
-        },
     ],
     devServer: {
         static: './',
