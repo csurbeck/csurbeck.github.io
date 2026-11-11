@@ -189,12 +189,12 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                         </h2>
                         <p className={styles.paragraphText}>
                             My journey has taken me from wiring back-end systems as an intern at REI to spearheading front-end innovation 
-                            for projects with CallAssure and Expedia. Now Qualtrics, I'm building intuitive platform experiences that bridge 
+                            for projects with CallAssure and Expedia. Now at Qualtrics, I'm building intuitive platform experiences that bridge 
                             the gap between complex data and the people who use it. 
                         </p>
                         <p className={styles.paragraphText}>
                             As a former Division I athlete, I have a team-oriented attitude and a commitment to leave things better than I found them.
-                            When I'm not coding, you'll likely find trialing a new recipe, drinking coffee, puzzling, or counterbalancing my
+                            When I'm not coding, you'll likely find me trialing new recipes, drinking coffee, puzzling, or counterbalancing my
                             SWE posture with pilates.
                         </p>
                     </section>

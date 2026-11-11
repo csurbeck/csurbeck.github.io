@@ -1,3 +1,17 @@
+.key {
+    display: inline-block;
+    padding: 0.05em 0.4em;
+    border-radius: 4px;
+    background: rgba(0, 0, 38, 0.08);
+    color: #000026;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.86em;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    vertical-align: baseline;
+}
+
 .demo {
     margin-top: 8px;
     width: 100%;

@@ -136,8 +136,8 @@ export function ReorderableTablePage() {
                         Try it
                     </h2>
                     <p className={styles.sectionBody}>
-                        Tab to a row and press Space or Enter to pick it up. Use the arrow keys to move the row up
-                        or down. Press Space or Enter to drop the row in its new position. Press Escape to drop 
+                        <kbd className={pageStyles.key}>Tab</kbd> to a row and press <kbd className={pageStyles.key}>Space</kbd> or <kbd className={pageStyles.key}>Enter</kbd> to pick it up. Use the arrow keys to move the row up
+                        or down. Press <kbd className={pageStyles.key}>Space</kbd> or <kbd className={pageStyles.key}>Enter</kbd> to drop the row in its new position. Press <kbd className={pageStyles.key}>Escape</kbd> to drop
                         the row back in its original position.
                     </p>
                     <div className={pageStyles.demo}>
