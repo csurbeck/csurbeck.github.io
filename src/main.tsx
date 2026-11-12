@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import whiteLadybug from '@src/assets/ladybug.svg'
 import orangeLadybug from '@src/assets/small-orange-ladybug.svg'
 import App from './App'
+import './App.css'
 
 const colorScheme = window.matchMedia('(prefers-color-scheme: dark)')
 
