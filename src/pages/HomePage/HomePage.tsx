@@ -1,7 +1,7 @@
 import { NavMenu } from '@src/components/NavMenu';
 import { ScrollSection, type ScrollSectionHandle } from '@src/components/ScrollSection';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate, useNavigationType } from 'react-router-dom';
 import * as stylesImport from './HomePage.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
 
@@ -17,9 +17,16 @@ function sectionFromState(state: unknown): SectionId | null {
 }
 
 export function HomePage() {
-    const requestedSection = sectionFromState(useLocation().state);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const navigationType = useNavigationType();
+    const stateSection = sectionFromState(location.state);
+    // A reload restores the history entry as a POP. Only the link back from a
+    // project should open on that section.
+    const requestedSection = navigationType === 'POP' ? null : stateSection;
     const [currentSection, setCurrentSection] = useState<SectionId>(requestedSection ?? 'landing');
     const scrollRef = useRef<ScrollSectionHandle>(null);
+    const consumedKey = useRef<string | null>(null);
 
     useEffect(() => {
         document.title = 'Claire Surbeck';
@@ -29,6 +36,15 @@ export function HomePage() {
         if (!requestedSection) return;
         scrollRef.current?.scrollToSection(requestedSection, 'instant');
     }, [requestedSection]);
+
+    useEffect(() => {
+        if (!requestedSection || consumedKey.current === location.key) return;
+        consumedKey.current = location.key;
+        navigate(
+            { pathname: location.pathname, search: location.search, hash: location.hash },
+            { replace: true, state: null },
+        );
+    }, [requestedSection, navigate, location.key, location.pathname, location.search, location.hash]);
 
     const handleNavigate = useCallback((section: SectionId) => {
         scrollRef.current?.scrollToSection(section);
