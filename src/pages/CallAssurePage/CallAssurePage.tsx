@@ -114,7 +114,7 @@ export function CallAssurePage() {
                     <p className={styles.sectionBody}>
                         <p>
                             Shipping the whole site, not just mockups or code, is what made the project stick.
-                            It was daunting to work on something by myself and have to rely on my own judgement 
+                            It was daunting to work on something by myself and have to rely on my own judgment 
                             for most decisions, while learning React and TypeScript along the way. Ultimately, it taught 
                             me to keep pushing forward through ambiguity and trust that the right path forward will
                             make itself clear. 
