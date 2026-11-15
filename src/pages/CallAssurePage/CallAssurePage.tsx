@@ -113,7 +113,7 @@ export function CallAssurePage() {
                     </h2>
                     <p className={styles.sectionBody}>
                         <p>
-                            Shipping the whole site, not just mock ups or code, is what made the project stick.
+                            Shipping the whole site, not just mockups or code, is what made the project stick.
                             It was daunting to work on something by myself and have to rely on my own judgement 
                             for most decisions, while learning React and TypeScript along the way. Ultimately, it taught 
                             me to keep pushing forward through ambiguity and trust that the right path forward will
@@ -132,10 +132,9 @@ export function CallAssurePage() {
                     </h2>
                     <p className={styles.sectionBody}>
                         <p>
-                            Something that really stands out to me now that I have more formal industry experience are 
-                            UX edge cases that can be mediated through code. For example, something as simple as preloading 
-                            images. Waiting on them while the rest of the page is a less-than-ideal experience, and is
-                            an amatuer web development mistake that I won't make now.
+                        What stands out to me now, with more formal industry experience, is how UX edge cases 
+                        can be handled in code. Preloading images is a simple example. Waiting on them while 
+                        the rest of the page loads is a poor experience, and an amateur mistake I won't make again.
                         </p>
                     </p>
                 </section>
