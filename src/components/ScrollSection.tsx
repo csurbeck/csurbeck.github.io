@@ -235,7 +235,7 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                         <h2 className={styles.sectionTitle}>Put me on a team, product, or feature!</h2>
                         <p className={styles.paragraphText}>
                             I'm looking for frontend, full-stack, and UX/design engineer roles. 
-                            I love building surfaces users interact with directly, and making them intuitive and seamless so poeple want to come back.
+                            I love building surfaces users interact with directly, and making them intuitive and seamless so people want to come back.
                         </p>
                         <p className={styles.paragraphText}>
                             Based on the West Coast between Seattle and the Bay Area. Open to on-site, hybrid, or remote.
