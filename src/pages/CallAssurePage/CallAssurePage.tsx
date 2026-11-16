@@ -2,24 +2,17 @@ import homepage from '@src/assets/callassure/homepage.png';
 import howItWorks from '@src/assets/callassure/how-it-works.png';
 import loginPage from '@src/assets/callassure/login.png';
 import { BackToSelectedWork } from '@src/components/BackToSelectedWork';
-import { preloadImage } from '@src/preloadImage';
+import { prefetchImage } from '@src/prefetchImage';
 import { useEffect } from 'react';
 import * as stylesImport from '@src/styles/projectPage.module.scss';
 
 const styles = stylesImport as unknown as Record<string, string>;
 
-const supportingImages = [howItWorks, loginPage];
-
-export function preloadCallAssureImages(heroPriority: 'high' | 'low' = 'low') {
-    preloadImage(homepage, heroPriority);
-    for (const src of supportingImages) {
-        preloadImage(src, 'low');
-    }
+export function prefetchCallAssureHero() {
+    prefetchImage(homepage);
 }
 
 export function CallAssurePage() {
-    preloadCallAssureImages('high');
-
     useEffect(() => {
         document.title = 'Claire Surbeck – CallAssure';
     }, []);
@@ -32,6 +25,8 @@ export function CallAssurePage() {
                     <img
                         src={homepage}
                         alt="CallAssure homepage on a laptop: assuring peace of mind and independence"
+                        width={1600}
+                        height={1008}
                         className={styles.heroImage}
                         fetchPriority="high"
                         decoding="async"
@@ -94,15 +89,19 @@ export function CallAssurePage() {
                     <img
                         src={howItWorks}
                         alt="How it Works section with the headline A Call a Day, Even Far Away"
+                        width={15317}
+                        height={9649}
                         className={styles.heroImage}
-                        fetchPriority="low"
+                        loading="lazy"
                         decoding="async"
                     />
                     <img
                         src={loginPage}
                         alt="Phone mockups of an incoming CallAssure call and a check-in text"
+                        width={15317}
+                        height={9649}
                         className={styles.heroImage}
-                        fetchPriority="low"
+                        loading="lazy"
                         decoding="async"
                     />
                 </section>

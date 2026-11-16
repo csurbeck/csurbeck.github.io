@@ -6,31 +6,17 @@ import phoneScreens from '@src/assets/expedia-trips/phone-screens.png';
 import researchFindings from '@src/assets/expedia-trips/research-findings.jpg';
 import userTesting from '@src/assets/expedia-trips/user-testing.jpeg';
 import { BackToSelectedWork } from '@src/components/BackToSelectedWork';
-import { preloadImage } from '@src/preloadImage';
+import { prefetchImage } from '@src/prefetchImage';
 import { useEffect } from 'react';
 import * as stylesImport from '@src/styles/projectPage.module.scss';
 
 const styles = stylesImport as unknown as Record<string, string>;
 
-const supportingImages = [
-    calendarScreens,
-    budgetFeature,
-    chatFeature,
-    researchFindings,
-    midFiPrototypes,
-    userTesting,
-];
-
-export function preloadExpediaImages(heroPriority: 'high' | 'low' = 'low') {
-    preloadImage(phoneScreens, heroPriority);
-    for (const src of supportingImages) {
-        preloadImage(src, 'low');
-    }
+export function prefetchExpediaHero() {
+    prefetchImage(phoneScreens);
 }
 
 export function ExpediaTripsPage() {
-    preloadExpediaImages('high');
-
     useEffect(() => {
         document.title = 'Claire Surbeck – Expedia Trips';
     }, []);
@@ -43,6 +29,8 @@ export function ExpediaTripsPage() {
                     <img
                         src={phoneScreens}
                         alt="Example mobile app screens from the Expedia Trips redesign"
+                        width={2000}
+                        height={1128}
                         className={styles.heroImage}
                         fetchPriority="high"
                         decoding="async"
@@ -78,8 +66,10 @@ export function ExpediaTripsPage() {
                     <img
                         src={calendarScreens}
                         alt="Expedia Trips itinerary screens"
+                        width={2000}
+                        height={1372}
                         className={styles.contentImage}
-                        fetchPriority="low"
+                        loading="lazy"
                         decoding="async"
                     />
                     <p className={styles.sectionBody}>
@@ -89,8 +79,10 @@ export function ExpediaTripsPage() {
                     <img
                         src={budgetFeature}
                         alt="Proposed budget feature for the Expedia Trips redesign"
+                        width={2000}
+                        height={1372}
                         className={styles.contentImage}
-                        fetchPriority="low"
+                        loading="lazy"
                         decoding="async"
                     />
                     <p className={styles.sectionBody}>
@@ -101,8 +93,10 @@ export function ExpediaTripsPage() {
                     <img
                         src={chatFeature}
                         alt="Proposed chat feature for the Expedia Trips redesign"
+                        width={2000}
+                        height={1372}
                         className={styles.contentImage}
-                        fetchPriority="low"
+                        loading="lazy"
                         decoding="async"
                     />
                 </section>
@@ -124,8 +118,10 @@ export function ExpediaTripsPage() {
                     <img
                         src={researchFindings}
                         alt="Survey and interview research findings"
+                        width={2000}
+                        height={1271}
                         className={styles.contentImage}
-                        fetchPriority="low"
+                        loading="lazy"
                         decoding="async"
                     />
                     <p className={styles.sectionBody}>
@@ -158,8 +154,10 @@ export function ExpediaTripsPage() {
                     <img
                         src={midFiPrototypes}
                         alt="Array of mid-fidelity prototypes"
+                        width={2000}
+                        height={1499}
                         className={styles.contentImage}
-                        fetchPriority="low"
+                        loading="lazy"
                         decoding="async"
                     />
                 </section>
@@ -178,8 +176,10 @@ export function ExpediaTripsPage() {
                     <img
                         src={userTesting}
                         alt="Claire conducting a user test in the research lab"
+                        width={575}
+                        height={416}
                         className={`${styles.contentImage} ${styles.contentImageNarrow}`}
-                        fetchPriority="low"
+                        loading="lazy"
                         decoding="async"
                     />
                 </section>

@@ -1,8 +1,8 @@
 import callassureHome from '@src/assets/callassure/homepage.png';
 import phoneScreens from '@src/assets/expedia-trips/phone-screens.png';
 import tablePreview from '@src/assets/reorderable-table.png';
-import { preloadCallAssureImages } from '@src/pages/CallAssurePage/CallAssurePage';
-import { preloadExpediaImages } from '@src/pages/ExpediaTripsPage/ExpediaTripsPage';
+import { prefetchCallAssureHero } from '@src/pages/CallAssurePage/CallAssurePage';
+import { prefetchExpediaHero } from '@src/pages/ExpediaTripsPage/ExpediaTripsPage';
 import { Link } from 'react-router-dom';
 import * as stylesImport from './SkillTiles.module.scss';
 
@@ -15,7 +15,7 @@ const TILES = [
         to: '/work/reorderable-table',
         image: tablePreview,
         imageClass: styles.imageTable,
-        preload: undefined,
+        prefetch: undefined,
     },
     {
         skill: 'UI design',
@@ -23,7 +23,7 @@ const TILES = [
         to: '/work/expedia-trips',
         image: phoneScreens,
         imageClass: styles.imagePhones,
-        preload: () => preloadExpediaImages(),
+        prefetch: prefetchExpediaHero,
     },
     {
         skill: '0 to 1',
@@ -31,7 +31,7 @@ const TILES = [
         to: '/work/callassure',
         image: callassureHome,
         imageClass: styles.imageLaptop,
-        preload: () => preloadCallAssureImages(),
+        prefetch: prefetchCallAssureHero,
     },
 ];
 
@@ -49,8 +49,8 @@ export function SkillTiles() {
                         <Link
                             to={tile.to}
                             className={styles.tile}
-                            onMouseEnter={tile.preload}
-                            onFocus={tile.preload}
+                            onMouseEnter={tile.prefetch}
+                            onFocus={tile.prefetch}
                         >
                             <img src={tile.image} alt="" className={`${styles.image} ${tile.imageClass}`} />
                             <span className={styles.scrim} aria-hidden="true" />

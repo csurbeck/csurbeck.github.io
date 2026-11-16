@@ -1,8 +1,8 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import orangeLadybug from '@src/assets/orange-ladybug.png';
-import { preloadCallAssureImages } from '@src/pages/CallAssurePage/CallAssurePage';
-import { preloadExpediaImages } from '@src/pages/ExpediaTripsPage/ExpediaTripsPage';
+import { prefetchCallAssureHero } from '@src/pages/CallAssurePage/CallAssurePage';
+import { prefetchExpediaHero } from '@src/pages/ExpediaTripsPage/ExpediaTripsPage';
 import { SkillTiles } from './SkillTiles';
 import * as stylesImport from './ScrollSection.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
@@ -92,24 +92,6 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
         const media = window.matchMedia('(max-width: 900px)');
         media.addEventListener('change', syncMode);
         return () => media.removeEventListener('change', syncMode);
-    }, []);
-
-    useEffect(() => {
-        const work = contentRef.current?.querySelector('#work');
-        if (!work) return;
-
-        const warmProjectImages = () => {
-            preloadExpediaImages();
-            preloadCallAssureImages();
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            if (!entries.some((entry) => entry.isIntersecting)) return;
-            warmProjectImages();
-            observer.disconnect();
-        });
-        observer.observe(work);
-        return () => observer.disconnect();
     }, []);
 
     useEffect(() => {
@@ -215,8 +197,8 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             <Link
                                 to="/work/expedia-trips"
                                 className={styles.styledLink}
-                                onMouseEnter={() => preloadExpediaImages()}
-                                onFocus={() => preloadExpediaImages()}
+                                onMouseEnter={prefetchExpediaHero}
+                                onFocus={prefetchExpediaHero}
                             >
                                 Expedia Trips
                             </Link>
@@ -228,8 +210,8 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             <Link
                                 to="/work/callassure"
                                 className={styles.styledLink}
-                                onMouseEnter={() => preloadCallAssureImages()}
-                                onFocus={() => preloadCallAssureImages()}
+                                onMouseEnter={prefetchCallAssureHero}
+                                onFocus={prefetchCallAssureHero}
                             >
                                 CallAssure
                             </Link>
