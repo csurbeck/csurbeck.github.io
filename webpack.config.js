@@ -69,7 +69,7 @@ const config = {
                 ],
             },
             {
-                test: /\.(svg|png|jpe?g|gif|webp)$/i,
+                test: /\.(svg|png|jpe?g|gif|webp|pdf)$/i,
                 type: 'asset/resource',
             },
         ],

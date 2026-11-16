@@ -4,6 +4,7 @@ import orangeLadybug from '@src/assets/orange-ladybug.png';
 import { prefetchCallAssureHero } from '@src/pages/CallAssurePage/CallAssurePage';
 import { prefetchExpediaHero } from '@src/pages/ExpediaTripsPage/ExpediaTripsPage';
 import { SkillTiles } from './SkillTiles';
+import resumeUrl from '@src/assets/claire-surbeck-resume.pdf';
 import * as stylesImport from './ScrollSection.module.scss';
 const styles = stylesImport as unknown as Record<string, string>;
 
@@ -247,7 +248,7 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             {' || '}
                             <a href="https://github.com/csurbeck" className={styles.styledLink} target="_blank" rel="noopener noreferrer">github</a>
                             {' || '}
-                            <a href="RESUME_URL" className={styles.styledLink} target="_blank" rel="noopener noreferrer">resume</a>
+                            <a href={resumeUrl} className={styles.styledLink} target="_blank" rel="noopener noreferrer">resume</a>
                         </p>
                     </section>
                 </div>
