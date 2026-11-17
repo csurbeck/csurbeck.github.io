@@ -1,3 +1,4 @@
+import { useProjectVisit } from '@src/analytics';
 import { BackToSelectedWork } from '@src/components/BackToSelectedWork';
 import {
     ReorderableTable,
@@ -56,6 +57,8 @@ function statusClass(status: DemoRow['status']) {
 
 export function ReorderableTablePage() {
     const [items, setItems] = useState<DemoRow[]>(INITIAL_ROWS);
+
+    useProjectVisit('Reorderable Table');
 
     useEffect(() => {
         document.title = 'Claire Surbeck – Reorderable table';

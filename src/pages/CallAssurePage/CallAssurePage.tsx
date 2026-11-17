@@ -1,6 +1,7 @@
 import homepage from '@src/assets/callassure/homepage.png';
 import howItWorks from '@src/assets/callassure/how-it-works.png';
 import loginPage from '@src/assets/callassure/login.png';
+import { useProjectVisit } from '@src/analytics';
 import { BackToSelectedWork } from '@src/components/BackToSelectedWork';
 import { prefetchImage } from '@src/prefetchImage';
 import { useEffect } from 'react';
@@ -13,6 +14,8 @@ export function prefetchCallAssureHero() {
 }
 
 export function CallAssurePage() {
+    useProjectVisit('CallAssure');
+
     useEffect(() => {
         document.title = 'Claire Surbeck – CallAssure';
     }, []);

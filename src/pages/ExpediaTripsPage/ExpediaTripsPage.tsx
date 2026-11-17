@@ -5,6 +5,7 @@ import midFiPrototypes from '@src/assets/expedia-trips/mid-fi-prototypes.jpg';
 import phoneScreens from '@src/assets/expedia-trips/phone-screens.png';
 import researchFindings from '@src/assets/expedia-trips/research-findings.jpg';
 import userTesting from '@src/assets/expedia-trips/user-testing.jpeg';
+import { useProjectVisit } from '@src/analytics';
 import { BackToSelectedWork } from '@src/components/BackToSelectedWork';
 import { prefetchImage } from '@src/prefetchImage';
 import { useEffect } from 'react';
@@ -17,6 +18,8 @@ export function prefetchExpediaHero() {
 }
 
 export function ExpediaTripsPage() {
+    useProjectVisit('Expedia Trips');
+
     useEffect(() => {
         document.title = 'Claire Surbeck – Expedia Trips';
     }, []);

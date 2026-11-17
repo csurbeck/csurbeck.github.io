@@ -1,3 +1,4 @@
+import { trackContactLinkClicked } from '@src/analytics';
 import * as stylesImport from './NavMenu.module.scss';
 import linkedinIcon from '@src/assets/linkedin-icon.svg';
 import emailIcon from '@src/assets/email-icon.svg';
@@ -61,10 +62,10 @@ export const NavMenu = ({ currentSection, onNavigate }: NavMenuProps) => (
         </div>
         <div className={styles.navFooter}>
             <div className={styles.navFooterIcons}>
-                <a href="https://www.linkedin.com/in/claire-surbeck/" target="_blank" rel="noopener noreferrer" className={styles.navFooterIcon}>
+                <a href="https://www.linkedin.com/in/claire-surbeck/" target="_blank" rel="noopener noreferrer" className={styles.navFooterIcon} onClick={() => trackContactLinkClicked('linkedin')}>
                     <img src={linkedinIcon} alt="LinkedIn navigation button" className={styles.linkedinIcon} />
                 </a>
-                <a href="mailto:clairesurbeck@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.navFooterIcon}>
+                <a href="mailto:clairesurbeck@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.navFooterIcon} onClick={() => trackContactLinkClicked('email')}>
                     <img src={emailIcon} alt="Email navigation button" className={styles.emailIcon} />
                 </a>
             </div>

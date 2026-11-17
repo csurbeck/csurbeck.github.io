@@ -1,3 +1,4 @@
+import { trackContactLinkClicked } from '@src/analytics';
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import orangeLadybug from '@src/assets/orange-ladybug.png';
@@ -187,7 +188,10 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                     <section id="work" className={styles.section} aria-label="Work">
                         <h2 className={styles.sectionTitle}>Selected work.</h2>
                         <p className={styles.paragraphText}>
-                            <Link to="/work/reorderable-table" className={styles.styledLink}>
+                            <Link
+                                to="/work/reorderable-table"
+                                className={styles.styledLink}
+                            >
                                 Reorderable table
                             </Link>
                             {' '}— a keyboard-accessible drag-and-drop table for ordered
@@ -242,13 +246,13 @@ export const ScrollSection = forwardRef<ScrollSectionHandle, ScrollSectionProps>
                             Based on the West Coast between Seattle and the Bay Area. Open to on-site, hybrid, or remote.
                         </p>
                         <p className={styles.paragraphText}>
-                            <a href="mailto:clairesurbeck@gmail.com" className={styles.styledLink}>email</a>
+                            <a href="mailto:clairesurbeck@gmail.com" className={styles.styledLink} onClick={() => trackContactLinkClicked('email')}>email</a>
                             {' || '}
-                            <a href="https://www.linkedin.com/in/claire-surbeck/" className={styles.styledLink} target="_blank" rel="noopener noreferrer">linkedin</a>
+                            <a href="https://www.linkedin.com/in/claire-surbeck/" className={styles.styledLink} target="_blank" rel="noopener noreferrer" onClick={() => trackContactLinkClicked('linkedin')}>linkedin</a>
                             {' || '}
-                            <a href="https://github.com/csurbeck" className={styles.styledLink} target="_blank" rel="noopener noreferrer">github</a>
+                            <a href="https://github.com/csurbeck" className={styles.styledLink} target="_blank" rel="noopener noreferrer" onClick={() => trackContactLinkClicked('github')}>github</a>
                             {' || '}
-                            <a href={resumeUrl} className={styles.styledLink} target="_blank" rel="noopener noreferrer">resume</a>
+                            <a href={resumeUrl} className={styles.styledLink} target="_blank" rel="noopener noreferrer" onClick={() => trackContactLinkClicked('resume')}>resume</a>
                         </p>
                     </section>
                 </div>
