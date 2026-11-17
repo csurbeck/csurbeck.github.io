@@ -31,9 +31,15 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: |
+          if [ -z "$AMPLITUDE_API_KEY" ]; then
+            echo "AMPLITUDE_API_KEY is not set. Add it as a repository secret so production can send analytics."
+            exit 1
+          fi
+          npm run build
         env:
           NODE_ENV: production
+          AMPLITUDE_API_KEY: ${{ secrets.AMPLITUDE_API_KEY }}
 
       - name: Add a fallback for client-side routes
         run: cp dist/index.html dist/404.html
